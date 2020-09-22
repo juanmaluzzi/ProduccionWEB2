@@ -2,7 +2,9 @@
 
     require_once 'inc/mysql_login.php'; 
 
-  /*  try { 
+
+  
+    try { 
            $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
 
         print "conexion buena";
@@ -13,7 +15,7 @@
 
         die ();
         } 
-        */
+        
     
     ?>
 
@@ -52,6 +54,7 @@ echo '<div class="site-wrap">
   <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
   <div class="container">
+
     <div class="d-flex align-items-center">
       
       <div class="mx-auto">
