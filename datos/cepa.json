@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "nombre": "Malbec"
+    },
+    {
+        "id": "2",
+        "nombre": "Rosado"
+    },
+    {
+        "id": "3",
+        "nombre": "Sauvignon Blanc"
+    },
+    {
+        "id": "4",
+        "nombre": "Torrontes"
+    },
+    {
+        "id": "5",
+        "nombre": "Syrah"
+    },
+    { 
+        "id": "6",
+        "nombre": "Pinot Noir"
+    },
+    { 
+        "id": "7",
+        "nombre": "Chardonnay"
+    }
+]
