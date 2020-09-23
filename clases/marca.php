@@ -9,7 +9,7 @@
 		$this->con = $con;
 
 		}
-		public function getMarca(){
+		public function getMarca($filtro = array()){
 
 		$query = "SELECT * FROM marcas";
 

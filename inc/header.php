@@ -4,6 +4,7 @@
      require_once('clases/productos.php');
      require_once('clases/marca.php'); 
       require_once('clases/cepa.php');
+      require_once('clases/categoria.php');
 
 
   
@@ -22,6 +23,7 @@
     $Productos = new Productos($con);
     $Marca = new Marca($con);
      $Cepa = new Cepa($con);
+     $Categoria = new Categoria($con);
     ?>
 
 

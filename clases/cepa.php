@@ -10,7 +10,7 @@
 		
 		}
 
-		public function getCepa(){
+		public function getCepa($filtro = array()){
 
 		$query = "SELECT * FROM cepa";
 		return $this->con->query($query);

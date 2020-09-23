@@ -9,7 +9,7 @@
 		$this->con = $con;
 
 		}
-		public function getCategoria(){
+		public function getCategoria($filtro = array()){
 
 		$query = "SELECT * FROM categoria";
 		return $this->con->query($query);

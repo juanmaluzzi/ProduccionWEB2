@@ -7,9 +7,9 @@
    <!-- CEPA  -->
     <?php 
 
-    require_once('clases/cepa.php');
+  
         
-        $Cepa = new Cepa($con);
+      
 
      foreach($Cepa->getCepa() as $cepa){
 
@@ -33,7 +33,7 @@
 
      require_once('clases/marca.php');     
 
-     $Marca = new Marca($con);
+    
 
      foreach($Marca->getMarca() as $marca){
 

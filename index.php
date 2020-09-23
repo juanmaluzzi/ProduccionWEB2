@@ -77,34 +77,25 @@
           </div>
 
         <div class="row mb-5">
+
+         <!-- PARA MOSTRAR PRODUCTOS EN INDEX -->
         <?php 
-           $fp = fopen('datos/productos.json','r');
-           $pArray = json_decode(fread($fp,filesize('datos/productos.json')),true);
-           fclose($fp);
-           foreach($pArray as $productos){
-             if($productos['destacado'] == TRUE){ 
-             
-                
-             
+           foreach($Productos->getProductos() as $productos){ 	
+                        
          ?>
-         <?php
-          /// abroooo marca
-       $fp = fopen('datos/marca.json','r');
-       $marcaArray = json_decode(fread($fp,filesize('datos/marca.json')),true);
-       fclose($fp);
-       foreach($marcaArray as $marca){ 
-         if($marca['id'] == $productos['marca']){
-         break;
-       }
-         
-       } 
+
+         <!-- PARA MARCAS EN INDEX -->
+         <?php 
+         foreach($Marca->getMarca() as $marca){ 				
+        }
          ?>
+        
 
 
          <div class="col-lg-3 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
             
-              <a href="shopproducto.php?produdctos=<?php echo $productos['id_producto']?>" class="thumbnail d-block mb-4"><img src="images/<?php echo $productos['imagen']?>" alt="Image" class="img-fluid"></a>
+              <a href="shopproducto.php?produdctos=<?php echo $productos['id_producto']?>" class="thumbnail d-block mb-4"><img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image" class="img-fluid"></a>
               <div>
                 <h3 class="heading mb-1"><?php echo $productos['nombre']?></h3>
                 <span class="price"><?php echo $productos['precio']?></span>
@@ -113,7 +104,7 @@
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><?php echo $marca['nombre']?></h3>
+                <h3 class="heading-2"><?php echo $marca['marca']?></h3>
                 <p class="heading-2"><?php echo $productos['nombre']?></p>
                 <span class="price d-block"><?php echo $productos['precio']?></span>
                 
@@ -169,7 +160,7 @@
               </div>
               
             </div>
-                              <?php }
+                              <?php 
              }?>
           </div>
       </div>

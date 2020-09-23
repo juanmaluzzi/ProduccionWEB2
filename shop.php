@@ -71,12 +71,12 @@
 				foreach($Productos->getProductos() as $productos){ 	
                 
 			?>
-     <?php
+      <?php
                 ///// ADENTRO DE PRODUCTOS 
                 foreach($Marca->getMarca() as $marca){ 				
         }
 
-      ?>
+      ?> 
             <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
             

@@ -13,14 +13,14 @@
 
 		}
 
-		public function getProductos(){
+		public function getProductos($filtro = array()){
 
 		$query = "SELECT * FROM productos";
 
 
-		if (!empty($filtro['categoria_id'])){
+		if (!empty($filtro['marca'])){
 
-		$query .= 'WHERE id = '.$filtro['categoria_id'];
+		$query .= 'WHERE marcas_id = '.$filtro['marca'];
 		
 		}
 

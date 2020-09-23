@@ -127,7 +127,8 @@ $comentarioArray[$indexComentario] = $data;
     
     
             <div class="site-section-heading ">
-              <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?> </br> <?php echo $marca['marca']?>  </h2>
+              <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?></h2>            
+             <h2 class="text-black font-heading-serif mb-0"><?php echo $marca['marca']?> </h2>
               <h3 class="text-black font-heading-serif mb-0"><?php echo $cepa['cepa'] ?></h3>
               <div class="size">$ <?php echo $productos['precio'] ?></div>
                      <div class="star rating">
