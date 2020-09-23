@@ -85,28 +85,35 @@ $comentarioArray[$indexComentario] = $data;
       <div class="container" >
         <div class="row pt-5">
           <div class="col-md-6">
-          <?php 	$fp = fopen('datos/productos.json','r');
-				$pArray = json_decode(fread($fp,filesize('datos/productos.json')),true);
-				fclose($fp);
-				foreach($pArray as $productos){ 
+          <?php 
+          require_once('clases/productos.php');
+          require_once('clases/marca.php'); 
+          require_once('clases/cepa.php');
+        
+         $Productos = new Productos($con);
+
+				foreach($Productos->getProductos() as $productos){ 
+
 					if($productos['id_producto'] == $_GET['productos']){
 						break;
 					}
         }
-        $fp = fopen('datos/marca.json','r');
-				$marcaArray = json_decode(fread($fp,filesize('datos/marca.json')),true);
-				fclose($fp);
-				foreach($marcaArray as $marca){ 
-          if($marca['id'] == $productos['marca']){
+            
+
+         $Marca = new Marca($con);
+         
+			foreach($Marca->getMarca() as $marca){ 
+
+          if($marca['id'] == $productos['marcas_id']){
           break;
         }
 					
         }
-        $fp = fopen('datos/cepa.json','r');
-				$cepaArray = json_decode(fread($fp,filesize('datos/cepa.json')),true);
-				fclose($fp);
-				foreach($cepaArray as $cepa){ 
-          if($cepa['id'] == $productos['cepa']){
+        $Cepa = new Cepa($con);
+
+         foreach($Cepa->getCepa() as $cepa){
+
+          if($cepa['id_cepa'] == $productos['cepa_id']){
           break;
         }
 					
@@ -114,7 +121,8 @@ $comentarioArray[$indexComentario] = $data;
 			?>
             <div class="block-16">
               <figure  aling="center" >
-                <img src="images/<?php echo $productos['imagen']?>" alt="Image placeholder" class="img-fluid" >
+
+                <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image placeholder" class="img-fluid" >
     
               </figure>
             </div>
@@ -124,12 +132,12 @@ $comentarioArray[$indexComentario] = $data;
     
     
             <div class="site-section-heading ">
-              <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?> </br> <?php echo $marca['nombre']?></h2>
-              <h3 class="text-black font-heading-serif mb-0"><?php echo $cepa['nombre'] ?></h3>
+              <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?> </br> <?php echo $marca['marca']?>  </h2>
+              <h3 class="text-black font-heading-serif mb-0"><?php echo $cepa['cepa'] ?></h3>
               <div class="size"><?php echo $productos['precio'] ?></div>
                      <div class="star rating">
                      <?php
-                switch ($productos['raiting']) {
+              switch ($productos['raiting']) {
 
                              case "1":
                                echo '<span class="icon-star"></span>
@@ -173,11 +181,11 @@ $comentarioArray[$indexComentario] = $data;
                               <span class="icon-star"></span>'
                               ;
                            break;
-                    }
+                    } 
 ?>
                 </div>
                </div>
-            <p class="pb-1 mt-1"><?php echo $productos['Descripcion'] ?></p>
+            <p class="pb-1 mt-1"><?php echo $productos['descripcion'] ?></p>
             </div>
             
    <!--Display de producto -->

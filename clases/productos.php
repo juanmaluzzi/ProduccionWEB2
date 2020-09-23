@@ -3,7 +3,7 @@
 
 <?php
 
-	class Productos{  
+	class Productos{
 
 		private $con;
 
@@ -16,12 +16,21 @@
 		public function getProductos(){
 
 		$query = "SELECT * FROM productos";
+
+
+		if (!empty($filtro['categoria_id'])){
+
+		$query .= 'WHERE id = '.$filtro['categoria_id'];
+		
+		}
+
+
+		
 		return $this->con->query($query);
-
+		
 	
-	
-
-	}	
+		}
+		
 	}
 
 ?>

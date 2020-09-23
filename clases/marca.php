@@ -12,6 +12,10 @@
 		public function getMarca(){
 
 		$query = "SELECT * FROM marcas";
+
+	
+
+
 		return $this->con->query($query);
 
 	
