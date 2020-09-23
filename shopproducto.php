@@ -86,36 +86,31 @@ $comentarioArray[$indexComentario] = $data;
         <div class="row pt-5">
           <div class="col-md-6">
           <?php 
-          require_once('clases/productos.php');
-          require_once('clases/marca.php'); 
-          require_once('clases/cepa.php');
+       
+          
         
-         $Productos = new Productos($con);
+         
 
 				foreach($Productos->getProductos() as $productos){ 
 
 					if($productos['id_producto'] == $_GET['productos']){
 						break;
-					}
+					} 
         }
             
 
-         $Marca = new Marca($con);
+         
          
 			foreach($Marca->getMarca() as $marca){ 
 
-          if($marca['id'] == $productos['marcas_id']){
-          break;
-        }
+         
 					
         }
-        $Cepa = new Cepa($con);
+       
 
          foreach($Cepa->getCepa() as $cepa){
 
-          if($cepa['id_cepa'] == $productos['cepa_id']){
-          break;
-        }
+        
 					
 				}
 			?>
@@ -134,7 +129,7 @@ $comentarioArray[$indexComentario] = $data;
             <div class="site-section-heading ">
               <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?> </br> <?php echo $marca['marca']?>  </h2>
               <h3 class="text-black font-heading-serif mb-0"><?php echo $cepa['cepa'] ?></h3>
-              <div class="size"><?php echo $productos['precio'] ?></div>
+              <div class="size">$ <?php echo $productos['precio'] ?></div>
                      <div class="star rating">
                      <?php
               switch ($productos['raiting']) {
@@ -284,7 +279,7 @@ $comentarioArray[$indexComentario] = $data;
                     break; }
 									?>
           <blockquote class="testimony">
-          <img src="images/<?php echo $productos['imagen']?>" alt="Image">
+          <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image">
           <p class="small text-primary">
           <?php echo $comentario['Email'] ?>
              <br>   

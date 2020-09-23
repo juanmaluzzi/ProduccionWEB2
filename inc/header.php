@@ -2,6 +2,9 @@
 
     require_once 'inc/mysql_login.php'; 
      require_once('clases/productos.php');
+     require_once('clases/marca.php'); 
+      require_once('clases/cepa.php');
+
 
   
     try { 
@@ -16,7 +19,9 @@
         die ();
         } 
         
-    
+    $Productos = new Productos($con);
+    $Marca = new Marca($con);
+     $Cepa = new Cepa($con);
     ?>
 
 
