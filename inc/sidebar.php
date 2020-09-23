@@ -16,7 +16,7 @@
 
      ?>
 
-   <a class="dropdown-item" href="shop.php?cepa=<?php echo $cepa['id']?>"><?php echo $cepa['cepa'] ?></a>
+  <a class="dropdown-item" href="shop.php?cepa=<?php echo $cepa['id_cepa']?>&marca=<?php echo isset($_GET['marca'])?$_GET['marca']:'' ?>"><?php echo $cepa['cepa'] ?></a>
      <?php }?>
  </div>
 
@@ -39,7 +39,7 @@
 
      ?>
 
-   <a class="dropdown-item" href="shop.php?marca=<?php echo $marca['id']?> "><?php echo $marca['marca'] ?></a>
+    <a class="dropdown-item" href="shop.php?marca=<?php echo $marca['id']?>&cepa=<?php echo isset($_GET['cepa'])?$_GET['cepa']:'' ?>"><?php echo $marca['marca'] ?></a>
      <?php }?>
  </div>
  </div>

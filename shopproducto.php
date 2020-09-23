@@ -86,34 +86,29 @@ $comentarioArray[$indexComentario] = $data;
         <div class="row pt-5">
           <div class="col-md-6">
           <?php 
-       
-          
-        
-         
-
+   
 				foreach($Productos->getProductos() as $productos){ 
 
-					if($productos['id_producto'] == $_GET['productos']){
-						break;
-					} 
+					
         }
+         ?>
             
+            
+            
+            <?php		
 
-         
-         
-			foreach($Marca->getMarca() as $marca){ 
-
-         
-					
+        foreach($Marca->getMarca() as $marca){ 
+			
         }
+     	 ?>
+
+       <?php
        
-
          foreach($Cepa->getCepa() as $cepa){
-
-        
-					
+		
 				}
 			?>
+
             <div class="block-16">
               <figure  aling="center" >
 

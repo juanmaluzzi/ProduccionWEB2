@@ -18,9 +18,9 @@
 		$query = "SELECT * FROM productos";
 
 
-		if (!empty($filtro['marca'])){
+		if (!empty($filtro['cepa'])){
 
-		$query .= 'WHERE marcas_id = '.$filtro['marca'];
+		$query .= 'WHERE id = '.$filtro['cepa'];
 		
 		}
 
