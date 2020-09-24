@@ -68,15 +68,10 @@
           <?php
       
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
-				foreach($Productos->getProductos($_GET) as $productos){ 	
+				foreach($Productos->getProductos() as $productos){ 	
                 
 			?>
-      <?php
-                ///// ADENTRO DE PRODUCTOS 
-                foreach($Marca->getMarca() as $marca){ 				
-        }
-
-      ?> 
+     
             <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
             
@@ -91,7 +86,7 @@
 
               
                   
-                <h3 class="heading-2"><?php echo $marca['marca']?></h3>
+                <h3 class="heading-2"><?php echo $productos['marcas_id']?></h3>
                 <p class="heading-2"><?php echo $productos['nombre']?></p>
                 <span class="price d-block"><?php echo $productos['precio']?></span>
                 

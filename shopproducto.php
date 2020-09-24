@@ -82,39 +82,31 @@ $comentarioArray[$indexComentario] = $data;
 
     <!--Display de producto-->
     <div class="site-section py-5 custom-border-bottom" data-aos="fade">
+         
+            
       <div class="container" >
+
         <div class="row pt-5">
-          <div class="col-md-6">
-          <?php 
-   
-				foreach($Productos->getProductos() as $productos){ 
-
-					
-        }
-         ?>
-            
-            
-            
-            <?php		
-
-        foreach($Marca->getMarca() as $marca){ 
-			
-        }
-     	 ?>
-
-       <?php
        
-         foreach($Cepa->getCepa() as $cepa){
-		
-				}
+         <?php
+      
+                ///////LISTADO DE PRODUCTOS SHOP.PHP
+				foreach($Productos->getProductos() as $productos){ 	
+                
 			?>
+          <div class="col-md-6">
+
+   
 
             <div class="block-16">
+
               <figure  aling="center" >
+
 
                 <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image placeholder" class="img-fluid" >
     
               </figure>
+
             </div>
           </div>
          
@@ -123,9 +115,10 @@ $comentarioArray[$indexComentario] = $data;
     
             <div class="site-section-heading ">
               <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?></h2>            
-             <h2 class="text-black font-heading-serif mb-0"><?php echo $marca['marca']?> </h2>
-              <h3 class="text-black font-heading-serif mb-0"><?php echo $cepa['cepa'] ?></h3>
+             <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['marcas_id']?> </h2>
+              <h3 class="text-black font-heading-serif mb-0"><?php echo $productos['cepa_id'] ?></h3>
               <div class="size">$ <?php echo $productos['precio'] ?></div>
+
                      <div class="star rating">
                      <?php
               switch ($productos['raiting']) {
@@ -176,9 +169,11 @@ $comentarioArray[$indexComentario] = $data;
 ?>
                 </div>
                </div>
+
             <p class="pb-1 mt-1"><?php echo $productos['descripcion'] ?></p>
+
             </div>
-            
+            <?php		}?>
    <!--Display de producto -->
           
           
@@ -335,7 +330,9 @@ $comentarioArray[$indexComentario] = $data;
           ?>
           
         </div>
+        
       </div>
+       
     </div>
           
           <!--CAJA COMENTARIOS -->
