@@ -94,6 +94,7 @@ $comentarioArray[$indexComentario] = $data;
 				//foreach($Productos->getProductos() as $productos){ 	
           $id = $_GET['productos'];
           $productos = $Productos->getUnProducto($id);
+          fetchAll($productos);
 			?>
           <div class="col-md-6">
 
