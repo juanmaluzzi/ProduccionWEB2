@@ -92,13 +92,13 @@
                    <div class="col-md-6 form-group">
                           <label for="areacomercial">¿Con qué área querés comunicarte?</label>
                          <br>
-                          <input type="radio" name="radio"  >
+                       
+                          <input type="radio" name="radio1"  >
                           <label for="comercial">Área comercial</label>
-                          <input type="radio" name="radio"  >
+                          <input type="radio" name="radio2"  >
                           <label for="marketing">Marketing</label>
-                          <input type="radio" name="radio"  >
+                          <input type="radio" name="radio3"  >
                           <label for="cobranzas">Cobranzas</label>
-                         
                   </div>
               </div>
               <div class="row">

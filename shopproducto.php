@@ -91,7 +91,7 @@ $comentarioArray[$indexComentario] = $data;
          <?php
       
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
-				foreach($Productos->getProductos() as $productos){ 	
+				echo $productos['Productos'] ;	
                 
 			?>
           <div class="col-md-6">
@@ -173,7 +173,6 @@ $comentarioArray[$indexComentario] = $data;
             <p class="pb-1 mt-1"><?php echo $productos['descripcion'] ?></p>
 
             </div>
-            <?php		}?>
    <!--Display de producto -->
           
           
