@@ -93,7 +93,7 @@ $comentarioArray[$indexComentario] = $data;
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
 				//foreach($Productos->getProductos() as $productos){ 	
           $id = $_GET['productos'];
-          $productos = $Productos->getUnProducto($id);
+          $productos = $Productos->getProductos();
 			?>
           <div class="col-md-6">
 
