@@ -13,6 +13,10 @@
 
 		}
 
+		public function getUnProducto($filtro = array()){
+			$query = "SELECT * FROM productos WHERE id_producto = $filtro";
+		}
+
 		public function getProductos($filtro = array()){
 
 		$query = "SELECT * FROM productos";
