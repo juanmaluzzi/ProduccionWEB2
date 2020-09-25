@@ -91,8 +91,9 @@ $comentarioArray[$indexComentario] = $data;
          <?php
       
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
-				foreach($Productos->getProductos() as $productos){ 	
-                
+				//foreach($Productos->getProductos() as $productos){ 	
+          $id = $_GET['productos'];
+          $productos = $Productos->getUnProducto($id);
 			?>
           <div class="col-md-6">
 
@@ -165,7 +166,7 @@ $comentarioArray[$indexComentario] = $data;
                               <span class="icon-star"></span>'
                               ;
                            break;
-                    } 
+                    
 ?>
                 </div>
                </div>
