@@ -13,9 +13,9 @@ if (isset($_POST['contacto01'] )) {
         $destino= "juan.luzzi@davinci.edu.ar";
         $Teléfono = $_POST['Teléfono'];
         $Mensaje = $_POST['Mensaje'];
-        $Radiobtn1= $_POST['radio1'] // aca podria hacer un if del seleccionado para enviar diferente dialogo
-        $Radiobtn2= $_POST['radio2']
-        $Radiobtn3= $_POST['radio3']
+     //   $Radiobtn1= $_POST['radio1'] // aca podria hacer un if del seleccionado para enviar diferente dialogo
+      //  $Radiobtn2= $_POST['radio2']//
+       // $Radiobtn3= $_POST['radio3']
         $contenido = "\nNombre: ".$Nombre."\nApellido: ".$Apellido."\nEmail: ".$Email.
             "\nTelefono: ".$Teléfono."\n\nMensaje: ".$Mensaje;
     

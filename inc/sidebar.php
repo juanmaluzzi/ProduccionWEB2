@@ -8,7 +8,7 @@
     <?php 
 
   
-        
+         require_once('clases/cepa.php');  
       
 
      foreach($Cepa->getCepa() as $cepa){

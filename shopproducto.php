@@ -93,7 +93,9 @@ $comentarioArray[$indexComentario] = $data;
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
 				//foreach($Productos->getProductos() as $productos){ 	
             $id = $_GET['productos'];
-      foreach($Productos->getUnProducto($id) as $productos){
+            
+            foreach($Productos->getUnProducto($id) as $productos){
+
 			?>
 
           <div class="col-md-6">
@@ -121,7 +123,7 @@ $comentarioArray[$indexComentario] = $data;
               <div class="size text-dark">$ <?php echo $productos['precio'] ?></div>
               
 
-                     <div class="star rating text-warning">
+                     <div class="star rating text-warning ">
                      <?php
               switch ($productos['raiting']) {
 
@@ -208,10 +210,10 @@ $comentarioArray[$indexComentario] = $data;
 
             
             <div class="row">
-                 <div class="form group pl-4">
+                 <div class="form group pl-4 text-dark">
                  <label for="product">¿Qué puntuación le das?</label>
                  <br>
-                  <select class="form-group form-control-lg " name="rankeo" class="form-control-lg">
+                  <select class="form-group form-control-lg text-warning border-dark" name="rankeo" class="form-control-lg">
                      <option value="0">------</option>
                       <option value="1">★</option>
                       <option value="2">★★</option>

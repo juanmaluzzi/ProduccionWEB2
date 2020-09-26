@@ -68,7 +68,8 @@
           <?php
       
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
-				foreach($Productos->getProductos() as $productos){ 	
+                
+				foreach($Productos->getProductos($_GET) as $productos){ 	
                 
 			?>
      

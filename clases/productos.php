@@ -18,16 +18,21 @@
 			return $this->con->query($query);
 		}
 
-		public function getProductos($filtro = array()){
+		public function getProductos($filtros = array()){
+
 
 		$query = "SELECT * FROM productos";
+		$where= array();
+		if (!empty($filtro['cepa']) AND empty ($filtro ['marca'])){
+		$query .= 'cepa_id = '.$filtro ['cepa'];
 
+		}elseif (!empty($filtro['marca']) AND empty ($filtro ['cepa'])){
+		$query .= 'marcas_id = '.$filtro ['marca'];
 
-		if (!empty($filtro['cepa'])){
-
-		$query .= 'WHERE id = '.$filtro['cepa'];
-		
-		}
+		}elseif (!empty($filtro['marca']) AND !empty ($filtro ['cepa'])){
+		$query .= 'marcas_id = '.$filtro ['marca'].' AND marcas_id ='.$filtro['marca'];
+			
+			}
 
 
 		
