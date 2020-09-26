@@ -84,11 +84,7 @@
                         
          ?>
 
-         <!-- PARA MARCAS EN INDEX -->
-         <?php 
-         foreach($Marca->getMarca() as $marca){ 				
-        }
-         ?>
+        
         
 
 
@@ -97,16 +93,16 @@
             
               <a href="shopproducto.php?produdctos=<?php echo $productos['id_producto']?>" class="thumbnail d-block mb-4"><img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image" class="img-fluid"></a>
               <div>
-                <h3 class="heading mb-1"><?php echo $productos['nombre']?></h3>
-                <span class="price"><?php echo $productos['precio']?></span>
+                <h3 class="heading mb-1 text-dark"><?php echo $productos['nombre']?></h3>
+                <span class="price text-dark">$ <?php echo $productos['precio']?></span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><?php echo $marca['marca']?></h3>
-                <p class="heading-2"><?php echo $productos['nombre']?></p>
-                <span class="price d-block"><?php echo $productos['precio']?></span>
+                <h3 class="heading-2"><?php echo $productos['marcas_id']?></h3>
+                <p class="heading-2 text-dark"><?php echo $productos['nombre']?></p>
+                <span class="price d-block text-dark">$ <?php echo $productos['precio']?></span>
                 
                 <div class="rating">
                 <?php
