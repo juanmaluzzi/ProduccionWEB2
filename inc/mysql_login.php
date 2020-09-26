@@ -5,7 +5,7 @@
 $hostname= 'localhost';
 $database= 'winesco';
 $username= 'root';
-$password= '';
+$password= '123456';
 $puerto= 3306;
 
 ?> 

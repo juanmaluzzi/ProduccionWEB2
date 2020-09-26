@@ -14,7 +14,7 @@
 		}
 
 		public function getUnProducto($filtro){
-			$query = "SELECT * FROM productos JOIN  WHERE id_producto = $filtro";
+			$query = "SELECT * FROM productos  WHERE id_producto = $filtro";
 			return $this->con->query($query);
 		}
 

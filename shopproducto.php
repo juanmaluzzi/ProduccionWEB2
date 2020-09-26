@@ -91,15 +91,12 @@ $comentarioArray[$indexComentario] = $data;
          <?php
       
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
-
-      $id = $_GET['productos'];
+				//foreach($Productos->getProductos() as $productos){ 	
+            $id = $_GET['productos'];
       foreach($Productos->getUnProducto($id) as $productos){
-
-
 			?>
-          <div class="col-md-6">
 
-   
+          <div class="col-md-6">
 
             <div class="block-16">
 
@@ -117,12 +114,14 @@ $comentarioArray[$indexComentario] = $data;
     
     
             <div class="site-section-heading ">
+
               <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['nombre'] ?></h2>            
              <h2 class="text-black font-heading-serif mb-0"><?php echo $productos['marcas_id']?> </h2>
               <h3 class="text-black font-heading-serif mb-0"><?php echo $productos['cepa_id'] ?></h3>
-              <div class="size">$ <?php echo $productos['precio'] ?></div>
+              <div class="size text-dark">$ <?php echo $productos['precio'] ?></div>
+              
 
-                     <div class="star rating">
+                     <div class="star rating text-warning">
                      <?php
               switch ($productos['raiting']) {
 
@@ -168,23 +167,23 @@ $comentarioArray[$indexComentario] = $data;
                               <span class="icon-star"></span>'
                               ;
                            break;
-                    
+                    }
 ?>
-                </div>
-               </div>
 
-            <p class="pb-1 mt-1"><?php echo $productos['descripcion'] ?></p>
-
-            </div>
-            <?php		}?>
+           
+            </div>    
+            </div> 
+            <p class="pb-1 mt-1 text-dark"><?php echo $productos['descripcion'] ?></p>
    <!--Display de producto -->
-          
-          
+        </div>
+          </div>
           <!--CAJA COMENTARIOS -->
+          <div class="row-col-md-5 ">
           <div class="container-fluid">
-            <h2 class="secction-tittle ml-5 pt-5 font-size: 12px;" style="color: black">¡Dejanos tu comentario!</h2>
+          
+            <h2 class="secction-tittle ml-5 mt-5 pt-5 font-size: 12px;" style="color: black">¡Dejanos tu comentario!</h2>
             <div class="container pt-2">
-            <div class="row">
+            <div class="row pt-5">
             
             
           
@@ -235,6 +234,7 @@ $comentarioArray[$indexComentario] = $data;
                   <div class="col-12 ml-2">
                       <input type="submit" name="enviarcoment" value="Enviar comentario" class="btn btn-primary py-3 px-5">
                   </div>
+
               </div>
         
         
@@ -242,16 +242,16 @@ $comentarioArray[$indexComentario] = $data;
         </form>  
                
             </div>
-                <?php  } ?>    
             
-       
-    </div>
+             
+
+    <?php  } ?>  
          </div>
           </div>
           
            </div>
         </div>
-      
+      </div>
   
    <!--Display de producto -->
           
@@ -334,6 +334,7 @@ $comentarioArray[$indexComentario] = $data;
           
         </div>
         
+         
       </div>
        
     </div>
