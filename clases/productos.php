@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 	class Productos{
@@ -14,14 +11,18 @@
 		}
 
 		public function getUnProducto($filtro){
-			$query = "SELECT * FROM productos  WHERE id_producto = $filtro";
+		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
+			FROM productos as p INNER JOIN marcas as m on p.marcas_id = m.id
+			INNER JOIN cepa as c on p.cepa_id = c.id_cepa
+			WHERE id_producto = $filtro";
 			return $this->con->query($query);
 		}
 
 		public function getProductos($filtros = array()){
 
 
-		$query = "SELECT * FROM productos";
+		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca
+					FROM productos as p INNER JOIN marcas as m on p.marcas_id = m.id";
 		$where= array();
 		if (!empty($filtro['cepa']) AND empty ($filtro ['marca'])){
 		$query .= 'cepa_id = '.$filtro ['cepa'];
