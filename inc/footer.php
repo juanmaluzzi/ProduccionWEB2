@@ -1,6 +1,3 @@
-<?php
-
-    echo '     
     <div class="footer">
       <div class="container">
         
@@ -27,5 +24,4 @@
 
       </div>
     </div>
-  </div>';
-?>
+  </div>

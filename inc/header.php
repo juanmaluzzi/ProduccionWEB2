@@ -24,12 +24,10 @@
     $Marca = new Marca($con);
      $Cepa = new Cepa($con);
      $Categoria = new Categoria($con);
-    ?>
 
-
-<?php 
  date_default_timezone_set('America/Argentina/Buenos_Aires');
-echo '<div class="site-wrap">
+?>
+ <div class="site-wrap">
 
 <div class="site-mobile-menu site-navbar-target">
   <div class="site-mobile-menu-header">
@@ -39,8 +37,6 @@ echo '<div class="site-wrap">
   </div>
   <div class="site-mobile-menu-body"></div>
 </div>
-
-
 
 <div class="header-top">
   <div class="container">
@@ -55,9 +51,6 @@ echo '<div class="site-wrap">
     </div>
   </div>
   
-
-
-  
   <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
   <div class="container">
@@ -67,10 +60,10 @@ echo '<div class="site-wrap">
       <div class="mx-auto">
         <nav class="site-navigation position-relative text-left" role="navigation">
           <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-            <li><a href="index.php" class="nav-link text-left">Inicio</a></li>
-            <li><a href="nosotros.php" class="nav-link text-left">Nosotros</a></li>
-            <li><a href="shop.php" class="nav-link text-left">Vinos</a></li>
-            <li><a href="contacto.php" class="nav-link text-left">Contacto</a></li>
+            <li><a href="index.php?seccion=home" class="nav-link text-left">Inicio</a></li>
+            <li><a href="index.php?seccion=nosotros" class="nav-link text-left">Nosotros</a></li>
+            <li><a href="index.php?seccion=shop" class="nav-link text-left">Vinos</a></li>
+            <li><a href="index.php?seccion=contacto" class="nav-link text-left">Contacto</a></li>
           </ul>                                                                                                                                                                                                                                                                                         
         </nav>
 
@@ -81,5 +74,4 @@ echo '<div class="site-wrap">
 
 </div>
 
-</div>';
-?>
+</div>

@@ -46,6 +46,6 @@
 
 </div>
 <button class="btn" type="button">
-   <a href="shop.php">Restablecer Busqueda</a>
+   <a href="index.php?seccion=shop">Restablecer Busqueda</a>
  </button>
 
