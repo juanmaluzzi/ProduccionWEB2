@@ -13,11 +13,12 @@
 
 		$query = "SELECT * FROM categoria";
 		return $this->con->query($query);
+		}	
 
-	
-	
-
-	}	
+		public function getNombreCate($id){
+			$query = "SELECT categoria FROM categoria WHERE id = ".$id;
+			return $this->con->query($query);	
+		}
 	}
 
 ?>

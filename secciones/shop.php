@@ -7,7 +7,7 @@
             <h2 class="d-block ">Nuestros Productos</h2>
             </div>
              <!-- The sidebar -->
-             <div class="row col-lg-3">
+             <div class="row">
              <?php
                 include_once 'inc/sidebar.php';
              ?>
@@ -25,7 +25,7 @@
       
                 ///////LISTADO DE PRODUCTOS SHOP.PHP
                 
-				foreach($Productos->getProductos() as $productos){ 
+				foreach($Productos->getProductos($_GET) as $productos){ 
 
 			?>
      
