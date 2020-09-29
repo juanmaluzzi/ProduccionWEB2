@@ -2,6 +2,7 @@
 <html lang="es">
 
 <?php
+
 $seccion = $_GET["seccion"];
 if($seccion == null){
 $seccion = "home";

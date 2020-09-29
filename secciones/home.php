@@ -49,7 +49,7 @@
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><?php echo $productos['marcas_id']?></h3>
+                <h3 class="heading-2"><?php echo $productos['nombreMarca']?></h3>
                 <p class="heading-2 text-dark"><?php echo $productos['nombre']?></p>
                 <span class="price d-block text-dark">$ <?php echo $productos['precio']?></span>
                 
