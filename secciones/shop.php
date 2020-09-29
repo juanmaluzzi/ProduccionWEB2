@@ -2,16 +2,17 @@
     <div class="site-section mt-2"> 
       <div class="container">
 
-        <div class="row mb-5">
+        <div class="row mb-2">
           <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block ">Nuestros Productos</h2>
-            </div>
+          </div>
+        </div>
              <!-- The sidebar -->
-             <div class="row">
+            <div class="row pb-3">
              <?php
                 include_once 'inc/sidebar.php';
              ?>
-  </div>
+            </div>
   
           <!-- The sidebar -->
           

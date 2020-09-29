@@ -10,7 +10,7 @@
         }
     ?>
 
-<div class="col-4">
+<div class="col-2">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <?php echo $nombreFiltroCepa; ?>
@@ -38,7 +38,7 @@
         $nombreFiltroMarca = 'Marcas';
       }
   ?>
-  <div class="col-4">
+  <div class="col-2">
     <div class="dropdown">
      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <?php echo $nombreFiltroMarca; ?>
@@ -64,7 +64,7 @@
         $nombreFiltroCate = 'Categorías';
       }
   ?>
-  <div class="col-4">
+  <div class="col-2">
     <div class="dropdown">
      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <?php echo $nombreFiltroCate; ?>
@@ -80,7 +80,7 @@
     </div>
   </div>
 
-  <div class="col-4">
+  <div class="col-3">
     <button class="btn" type="button">
       <a href="index.php?seccion=shop">Restablecer Busqueda</a>
     </button>
