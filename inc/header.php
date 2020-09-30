@@ -42,7 +42,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-12 text-center">
-        <a href="index.php" class="site-logo">
+        <a href="index.php?seccion=home" class="site-logo">
           <img src="images/logo.png" alt="Image" class="img-fluid">
         </a>
       </div>
