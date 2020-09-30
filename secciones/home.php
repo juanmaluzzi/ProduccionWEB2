@@ -42,7 +42,7 @@
          <div class="col-lg-2 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
             
-              <a href="shopproducto.php?productos=<?php echo $productos['id_producto']?>" class="thumbnail d-block mb-4"><img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image" class="img-fluid"></a>
+              <a href="index.php?seccion=shopproducto&productos=<?php echo $productos['id_producto']?>" class="thumbnail d-block mb-4"><img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image" class="img-fluid"></a>
               <div>
                 <h3 class="heading mb-1 text-dark"><?php echo $productos['nombre']?></h3>
                 <span class="price text-dark">$ <?php echo $productos['precio']?></span>

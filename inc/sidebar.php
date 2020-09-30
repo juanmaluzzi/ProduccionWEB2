@@ -88,36 +88,20 @@
    
      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      
-      <h6>Orden</h6>
+      Orden
      </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   <a class="dropdown-item" href="index.php?seccion=shop&order=1&marca=<?php echo (isset ($_GET['marca'])? $_GET['marca']: '') ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>">A-Z</a>
-   <a class="dropdown-item" href="index.php?seccion=shop&order=2&marca=<?php echo isset ($_GET['marca'])? $_GET['marca']: '' ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>">Z-A</a>
-   <a class="dropdown-item" href="index.php?seccion=shop&order=3&marca=<?php echo isset ($_GET['marca'])? $_GET['marca']: '' ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>">Destacados</a>
-<!-- 
-         <select onchange="orden()" id="order">
-            <option value="AZ">A->Z</option>
-            <option value="ZA">Z->A</option>
-            <option value="DES">Destacado</option>
-         </select>
-         <script>
- 	        function orden(){
-	        var a = document.getElementById('order');
-            windows.location.href = "index.php?seccion=shop&order="+(a.options[a.selectedIndex].value)+"&marca=<?php echo isset ($_GET['marca'])? $_GET['marca']: '' ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>";
-	        
-        }
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="index.php?seccion=shop&order=1&marca=<?php echo (isset ($_GET['marca'])? $_GET['marca']: '') ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>">A-Z</a>
+          <a class="dropdown-item" href="index.php?seccion=shop&order=2&marca=<?php echo isset ($_GET['marca'])? $_GET['marca']: '' ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>">Z-A</a>
+          <a class="dropdown-item" href="index.php?seccion=shop&order=3&marca=<?php echo isset ($_GET['marca'])? $_GET['marca']: '' ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&categoria=<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : '' ;?>">Destacados</a>
 
-        </script>
-         -->
-
-
-    </div>
+        </div>
     </div>
   </div>
 
 
 
-  <div class="col-3">
+  <div class="col-2">
     <button class="btn" type="button">
       <a href="index.php?seccion=shop">Restablecer Busqueda</a>
     </button>

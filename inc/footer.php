@@ -16,7 +16,7 @@
       <div class="copyright">
           <p>
               
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Este trabajo fue hecho con <i class="icon-heart text-danger" aria-hidden="true"></i> por el Grupo 3.
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Este trabajo fue hecho con <i class="icon-heart text-danger" aria-hidden="true"></i> por el Grupo 8.
               
               </p>
 
