@@ -45,7 +45,7 @@ $comentarioArray[$indexComentario] = $data;
             
       <div class="container" >
       
-      <button class="btn" type="button">
+      <button class="btn mt-3 " type="button">
         <a href="index.php?seccion=shop">Volver al catálogo</a>
       </button>
       
