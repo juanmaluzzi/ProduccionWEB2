@@ -8,17 +8,17 @@
 
 
   
-    try { 
+  //  try { 
            $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
 
-        print "conexion buena";
-        } 
+ /*     print "conexion buena";
+       } */
 
-        catch (PDOException $e)    { 
+   /*     catch (PDOException $e)    { 
         print "!NO CONECTA: " .$e->getMessage();
 
         die ();
-        } 
+        } */
         
     $Productos = new Productos($con);
     $Marca = new Marca($con);
