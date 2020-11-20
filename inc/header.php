@@ -39,7 +39,17 @@
 </div>
 
 <div class="header-top">
+<button class="btn mt-3 float-right mr-3 " type="button">
+<a href="admin">Registrarse</a>
+</button>
+<button class="btn mt-3 float-right mr-3 " type="button">
+<a href="admin">Iniciar sesión</a>
+</button>
+
   <div class="container">
+         
+  
+
     <div class="row align-items-center">
       <div class="col-12 text-center">
         <a href="index.php?seccion=home" class="site-logo">

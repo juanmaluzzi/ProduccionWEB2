@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\images\\12"
+    "\\admin",
+    "\\clases",
+    "\\inc",
+    "\\secciones"
   ],
-  "SelectedNode": "\\comentarios.json",
+  "SelectedNode": "\\clases\\cepa.php",
   "PreviewInSolutionExplorer": false
 }
