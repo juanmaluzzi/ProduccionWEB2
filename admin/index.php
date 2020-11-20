@@ -20,12 +20,20 @@
   <link rel="stylesheet" href="../css/style.css">
 
   <?php 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
+
+if(!isset($_GET['seccion'])):
+  $_GET['seccion'] = '';
+endif;
 
 require_once '../inc/mysql_login.php'; 
 require_once('../clases/productos.php');
 require_once('../clases/marca.php'); 
 require_once('../clases/cepa.php');
 require_once('../clases/categoria.php');
+require_once('../clases/usuario.php');
 date_default_timezone_set('America/Argentina/Buenos_Aires');
   try { 
          $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
@@ -43,6 +51,7 @@ $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
 $Categoria = new Categoria($con);
+$Usuario = new Usuario($con);
 
 ?>
 </head>

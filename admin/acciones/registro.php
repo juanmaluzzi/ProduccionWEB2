@@ -1,44 +1,40 @@
 <?php
+require_once '../../inc/mysql_login.php'; 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
 
-require_once("../config/config.php");
-require_once("../config/funciones.php");
+  try { 
+    $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
 
+ print "conexion buena";
+ } 
 
-if(empty($_POST["email"]) || empty($_POST["password"])):
-    $_SESSION["estado"] = "error";
-    $_SESSION["mensaje"] = "Los campos email y password son obligatorios";
+ catch (PDOException $e)    { 
+ print "!NO CONECTA: " .$e->getMessage();
 
-    header("Location:../index.php?seccion=registrate");
+ die ();
+ } 
+
+ require_once('../../clases/usuario.php');
+
+$Usuario = new Usuario($con);
+
+if(empty($_POST["usuario"]) || empty($_POST["password"])):
+    header("Location:../index.php?seccion=crearusr&mensaje=camposobligatorios");
     die();
 endif;
 
 $email = $_POST["email"];
+$perfil = $_POST["perfil"];
+$usuario = $_POST["usuario"];
 $password = $_POST["password"];
 
-$nuevoUsuario = explode("@",$email)[0];
+if(!isset($perfil)):
+    $perfil = 3;
+    endif;
 
-$usuario = !empty($_POST["usuario"]) ? $_POST["usuario"] : $nuevoUsuario;
-
-if(is_dir(RUTA_USUARIOS . "/$email")):
-    $_SESSION["estado"] = "error";
-    $_SESSION["mensaje"] = "El usuario ya existe en nuestro sitio";
-
-    header("Location:../index.php?seccion=registrate");
-    die();
-endif;
-
-mkdir(RUTA_USUARIOS . "/$email");
-
-file_put_contents(RUTA_USUARIOS . "/$email/usuario.txt", $usuario);
-
-file_put_contents(RUTA_USUARIOS . "/$email/perfil.txt", "usuario");
-
-$password = password_hash($password, PASSWORD_DEFAULT);
-
-file_put_contents(RUTA_USUARIOS . "/$email/password.txt",$password);
-
-$_SESSION["estado"] = "ok";
-$_SESSION["mensaje"] = "Ya podés ingresar con los datos con los que te registraste";
-
-
-header("Location: ../index.php?seccion=login");
+$mensaje = $Usuario->addUsr($usuario,$password,$perfil,$email);
+  print($mensaje);
+header("Location:../index.php?seccion=abmusuarios");
+die();

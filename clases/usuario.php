@@ -9,27 +9,33 @@
 		$this->con = $con;
 
         }
-        
-        public function addUsr(){
-            $query = "INSERT INTO usuarios VALUES(null,$_POST[usuario],$_POST[password],$_POST[perfil]);";
-            return $this->con->query($query);
+		
+        public function addUsr($usuario,$password,$perfil,$email){
+
+			$salt = password_hash($password, PASSWORD_BCRYPT);
+			
+			$password .= $salt;
+
+			$password = hash('md5',$password);
+			
+			$query = "INSERT INTO usuarios (id_usr,usr,pass,usr_perfil,email) VALUES('0','$usuario','$password','$perfil','$email');";
+			$this->con->exec($query);
+			return 'ok';
+
         }
 
-        public function getPerfil(){
-            $query = "SELECT nombre_perfil FROM perfiles ;";
+        public function getPerfiles(){
+            $query = "SELECT * FROM perfiles;";
             return $this->con->query($query);
-        }
-	/*	public function getCategoria($filtro = array()){
-
-		$query = "SELECT * FROM categoria";
-		return $this->con->query($query);
-		}	
-
-		public function getNombreCate($id){
-			$query = "SELECT categoria FROM categoria WHERE id = ".$id;
-			return $this->con->query($query);	
 		}
-    */
-    }
+		
+		public function getUsrs(){
+            $query = "SELECT usr, usr_perfil, email FROM usuarios;";
+            return $this->con->query($query);
+		}
+		
+		
+	}
+	
 
 ?>

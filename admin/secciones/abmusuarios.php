@@ -22,15 +22,16 @@
                 </thead>
                     <tbody>
                     <?php
-
-                        //$usuario = ; ******* ARMAR QUERY QUE TRAIGA USUARIOS *************
+                            $usuario = 'Usuario';
+                            $perfil = 'Perfil';
+                        foreach($Usuario->getUsrs() as $usuario){
                         //$perfil = ; ******* ARMAR QUERY QUE TRAIGA PERFILES *************
                         //$permisos = ; ******* ARMAR QUERY QUE TRAIGA PERMISOS *************
                         ?>
                                 <tr>
-                                    <td><?= $usuario; ?></td>
-                                    <td><?= $mail; ?></td>
-                                    <td><?= $perfil; ?></td>
+                                    <td><?= $usuario['usr']; ?></td>
+                                    <td><?= $usuario['email']; ?></td>
+                                    <td><?= $usuario['usr_perfil']; ?></td>
 
                                     <td>
                                     
@@ -43,7 +44,9 @@
                                         </div>
                                     </td>
                                 </tr>
-                            
+                            <?php
+                        }
+                            ?>
                         <h2 class="alert text-center">No hay usuarios registrados</h2>
                 </tbody>
             </table>    
