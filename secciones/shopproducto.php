@@ -223,9 +223,9 @@
         <?php 
 
       // $id ya esta inicializado arriba con $_GET productos
-     //  $co = $_GET['comentarios'];
+ 
 
-       foreach($Comentario->getComentario($id) as $comentario){        
+          foreach($Comentario->getComentario($id) as $comentario){        
        
 			?>
       
