@@ -61,6 +61,10 @@ $seccion = "home";
       require_once("secciones/shopproducto.php");}
       elseif($_GET["seccion"]== "nosotros"){
       require_once("secciones/nosotros.php");}
+      elseif($_GET["seccion"]== "usuarios"){
+      require_once("secciones/usuarios.php");}
+      elseif($_GET["seccion"]== "logusuario"){
+      require_once("secciones/logusuario.php");}
       else{
       require_once("secciones/home.php");
       };

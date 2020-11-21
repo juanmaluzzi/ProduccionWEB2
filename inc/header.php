@@ -40,10 +40,10 @@
 
 <div class="header-top">
 <button class="btn mt-3 float-right mr-3 " type="button">
-<a href="admin">Registrarse</a>
+<a href="index.php?seccion=usuarios">Registrarse</a>
 </button>
 <button class="btn mt-3 float-right mr-3 " type="button">
-<a href="admin">Iniciar sesión</a>
+<a href="index.php?seccion=logusuario">Iniciar sesión</a>
 </button>
 
   <div class="container">
