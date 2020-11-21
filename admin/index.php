@@ -28,6 +28,8 @@ if(!isset($_GET['seccion'])):
   $_GET['seccion'] = '';
 endif;
 
+$seccion = $_GET['seccion'];
+
 require_once '../inc/mysql_login.php'; 
 require_once('../clases/productos.php');
 require_once('../clases/marca.php'); 

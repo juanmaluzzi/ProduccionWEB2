@@ -20,6 +20,12 @@ error_reporting(E_ALL);
 
 $Usuario = new Usuario($con);
 
+if(isset($_POST['borrar_usr'])):
+  $Usuario->borrarUsr($_POST['borrar_usr']);
+  header("Location:../index.php?seccion=abmusuarios");
+  die();
+endif;
+
 if(empty($_POST["usuario"]) || empty($_POST["password"])):
     header("Location:../index.php?seccion=crearusr&mensaje=camposobligatorios");
     die();
@@ -36,5 +42,6 @@ if(!isset($perfil)):
 
 $mensaje = $Usuario->addUsr($usuario,$password,$perfil,$email);
   print($mensaje);
-header("Location:../index.php?seccion=abmusuarios");
+
+  header("Location:../index.php?seccion=abmusuarios");
 die();

@@ -17,6 +17,15 @@
 			$password .= $salt;
 
 			$password = hash('md5',$password);
+
+			switch($perfil){
+				case "Admin": $perfil = 1;
+			break;	
+				case "Vendedor": $perfil = 2;
+			break;
+				case "Cliente": $perfil = 3;
+			break;
+		}
 			
 			$query = "INSERT INTO usuarios (id_usr,usr,pass,usr_perfil,email) VALUES('0','$usuario','$password','$perfil','$email');";
 			$this->con->exec($query);
@@ -30,8 +39,14 @@
 		}
 		
 		public function getUsrs(){
-            $query = "SELECT usr, usr_perfil, email FROM usuarios;";
+            $query = "SELECT usr, usr_perfil, email, id_usr FROM usuarios;";
             return $this->con->query($query);
+		}
+
+		public function borrarUsr($id){
+			$query = "DELETE FROM usuarios WHERE id_usr = $id;";
+			$this->con->exec($query);
+			return 'Usuario borrado';
 		}
 		
 		

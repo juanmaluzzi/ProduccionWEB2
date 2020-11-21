@@ -1,11 +1,12 @@
 
 <div class="container">
-  <div class="card-body border-white">
+<div class="row justify-content-center">
+  <div class="card-body border-white bg-light col-8">
                     <form action="acciones/registro.php" method="post">
                     
                             <div class="row justify-content-center">
                               <div class="col-12 col-md-6">
-                                  <h2 class="text-center my-2">Crear usuario</h2>
+                                  <h3 class="text-center my-2">Crear usuario</h3>
                               </div>
                             </div>
 
@@ -18,17 +19,28 @@
 
                           <label class="text-color-light"for="password">Password</label>
                           <input type="password" class="form-control" name="password" id="password" placeholder="************">
-
-                          <?php
+                          
+                          <label class="text-color-light"for="perfil">Perfil</label>
+                          <select name="perfil" class="form-control" id="perfil">  
+  <?php
                           foreach($Usuario->getPerfiles() as $perfil){
-                          ?>
-                          <h3> <?= print($perfil['nombre_perfil']) ?> </h3>
-<?php
-                          }
-                          ?>
+                            
+                    ?>
 
+                          <option> <?= $perfil['nombre_perfil'] ?> </option>
 
-  <button type="submit" class="btn d-block m-auto">Ingresar</button>
+                          <?php } ?>
+
+                          
+                          </select>
   
+                        </div>
+                          
+                          <button type="submit" class="btn d-block m-auto btn-dark">Ingresar</button>
+                        
+                      </div>
+      </div>
+    </div>
   </div>
+</div>
 
