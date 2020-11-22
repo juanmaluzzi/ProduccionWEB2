@@ -12,12 +12,7 @@
 		
         public function addUsr($usuario,$password,$perfil,$email){
 
-			$salt = password_hash($password, PASSWORD_BCRYPT);
-			
-			$password .= $salt;
-
-			$password = hash('md5',$password);
-
+			$password = password_hash($password, PASSWORD_DEFAULT);
 			switch($perfil){
 				case "Admin": $perfil = 1;
 			break;	
@@ -48,7 +43,11 @@
 			$this->con->exec($query);
 			return 'Usuario borrado';
 		}
-		
+
+		public function getUsr($usr){
+			$query = "SELECT * FROM usuarios WHERE usr = '$usr';";
+			return $this->con->query($query);
+		}
 		
 	}
 	

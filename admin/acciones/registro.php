@@ -1,24 +1,9 @@
 <?php
 require_once '../../inc/mysql_login.php'; 
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(E_ALL);
+require_once '../../inc/config.php';
+require_once('../../clases/usuario.php');
 
-  try { 
-    $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
-
- print "conexion buena";
- } 
-
- catch (PDOException $e)    { 
- print "!NO CONECTA: " .$e->getMessage();
-
- die ();
- } 
-
- require_once('../../clases/usuario.php');
-
-$Usuario = new Usuario($con);
+$Usuario = new Usuario($con); 
 
 if(isset($_POST['borrar_usr'])):
   $Usuario->borrarUsr($_POST['borrar_usr']);
