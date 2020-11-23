@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<?php
-
-$seccion = $_GET["seccion"];
-if($seccion == null){
-$seccion = "home";
-}
-?>
-
 <head>
   <title>Wines Co.</title>
   <meta charset="utf-8">
@@ -51,19 +43,27 @@ $seccion = "home";
     <!--HEADER-->
 
     <?php
+    if(isset($_GET["seccion"])){ 
+
       if($_GET["seccion"]=="home"){
-      require_once("secciones/home.php");}
+      require_once("secciones/home.php");
+    }
       elseif($_GET["seccion"]=="contacto"){
-      require_once("secciones/contacto.php");}
+      require_once("secciones/contacto.php");
+    }
       elseif($_GET["seccion"]=="shop"){
-      require_once("secciones/shop.php");}
+      require_once("secciones/shop.php");
+    }
       elseif($_GET["seccion"]=="shopproducto"){
-      require_once("secciones/shopproducto.php");}
+      require_once("secciones/shopproducto.php");
+    }
       elseif($_GET["seccion"]== "nosotros"){
-      require_once("secciones/nosotros.php");}
-      else{
+      require_once("secciones/nosotros.php");
+    }
+    }else{
       require_once("secciones/home.php");
       };
+      
       ?>
 
         <!--FOOTER-->

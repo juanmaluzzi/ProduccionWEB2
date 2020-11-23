@@ -1,6 +1,7 @@
 <?php 
 
     require_once 'inc/mysql_login.php'; 
+    require_once 'inc/config.php'; 
      require_once('clases/productos.php');
      require_once('clases/marca.php'); 
       require_once('clases/cepa.php');
