@@ -6,12 +6,12 @@
 
 if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['usuario']) ){
 
-    $sql= "INSERT INTO usuarios_cl (usuario,email,password) VALUES (:usuario, :email,:password)";
+    $sql= "INSERT INTO usuarios (usr,email,pass) VALUES (:usr, :email,:pass)";
     $stmt = $con->prepare($sql);
-    $stmt -> bindParam(':usuario',$_POST['usuario']);
+    $stmt -> bindParam(':usr',$_POST['usuario']);
     $stmt -> bindParam(':email',$_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt -> bindParam(':password',$password);
+    $password = password_hash($_POST['[password]'], PASSWORD_BCRYPT);
+    $stmt -> bindParam(':pass',$password);
 
     if ($stmt->execute()){
         $message = 'Usuario creado';

@@ -47,7 +47,7 @@
 session_start();
 if (isset($_SESSION['user_id'])){
 
-  $base = $con -> prepare('SELECT id,usuario,password FROM usuarios_cl WHERE id=:id');
+  $base = $con -> prepare('SELECT id,usuario,password FROM usuarios WHERE id=:id');
   $base -> bindParam(':id',$_SESSION['user_id']);
   $base -> execute();
   $rta = $base->fetch (PDO::FETCH_ASSOC);

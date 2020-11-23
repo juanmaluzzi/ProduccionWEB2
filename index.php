@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<?php
 
-$seccion = $_GET["seccion"];
-if($seccion == null){
-$seccion = "home";
-}
-?>
 
 <head>
   <title>Wines Co.</title>
@@ -53,6 +47,7 @@ $seccion = "home";
     <?php
 
     // si es index.php entonces mandame a index.php?secciones/home
+    if(isset($_GET["seccion"])){ 
       if($_GET["seccion"]=="home"){
       require_once("secciones/home.php");}
       elseif($_GET["seccion"]=="contacto"){
@@ -71,6 +66,7 @@ $seccion = "home";
         require_once("secciones/login.php");}
         elseif($_GET["seccion"]== "logout"){
           require_once("secciones/logout.php");}
+        }
       else{
       require_once("secciones/home.php");
       };
