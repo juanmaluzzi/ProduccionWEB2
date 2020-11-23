@@ -1,3 +1,4 @@
+
 <div class="container mb-5">
     
         <div class="col-12">
@@ -30,8 +31,8 @@
                                     <td><?php echo $productos['nombre']?></td>
                                     <td>$<?php echo $productos['precio']?></td>
                                     <td><?php echo $productos['nombreMarca']?></td>
-                                    <td><?php echo $productos['nombreCat'] ?></td>
-                                    <td><?php echo $productos['nombreCepa'] ?></td>
+                                    <td><?php echo $productos['categoria_id'] ?></td>
+                                    <td><?php echo $productos['cepa_id'] ?></td>
                                     <td>
                                     
                                         <div class="btn-group" role="group" aria-label="">

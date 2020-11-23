@@ -50,6 +50,7 @@ $seccion = "home";
 
     <!--HEADER-->
 
+
     <?php
       if($_GET["seccion"]=="home"){
       require_once("secciones/home.php");}
@@ -65,10 +66,15 @@ $seccion = "home";
       require_once("secciones/usuarios.php");}
       elseif($_GET["seccion"]== "logusuario"){
       require_once("secciones/logusuario.php");}
+      elseif($_GET["seccion"]== "login"){
+        require_once("secciones/login.php");}
+        elseif($_GET["seccion"]== "logout"){
+          require_once("secciones/logout.php");}
       else{
       require_once("secciones/home.php");
       };
       ?>
+
 
         <!--FOOTER-->
     <?php

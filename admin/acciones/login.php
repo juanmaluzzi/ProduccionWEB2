@@ -4,7 +4,7 @@ require_once("../config/config.php");
 require_once("../config/funciones.php");
 
 
-if(empty($_POST["usuario"]) || empty($_POST["password"])):
+if(empty($_POST["usuario"]) || empty($_POST["password"]) || empty($_POST["email"])):
     $_SESSION["estado"] = "error";
     $_SESSION["mensaje"] = "Los campos email y password son obligatorios";
 
@@ -12,13 +12,15 @@ if(empty($_POST["usuario"]) || empty($_POST["password"])):
     die();
 endif;
 
-$email = $_POST["usuario"];
+$usuario = $_POST["usuario"];
+$email = $_POST["email"];
 $password = $_POST["password"];
 
+
 if(strpos($email,"@") === false)
-    $usuario = true;
+    $email = true;
 else
-    $usuario = false;
+    $email = false;
 
 if($usuario):
     $usuarios = glob(RUTA_USUARIOS . "/*/usuario.txt");
