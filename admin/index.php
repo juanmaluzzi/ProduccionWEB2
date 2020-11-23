@@ -51,7 +51,7 @@ $Categoria = new Categoria($con);
   require_once '../inc/mysql_login.php'; 
   ?>
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand col-5" href="../index.php"><h1>Wines CO.</h1></a>
+  <a class="navbar-brand col-5" href="../index.php?seccion=home"><h1>Wines CO.</h1></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>

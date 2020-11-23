@@ -50,8 +50,9 @@ $seccion = "home";
 
     <!--HEADER-->
 
-
     <?php
+
+    // si es index.php entonces mandame a index.php?secciones/home
       if($_GET["seccion"]=="home"){
       require_once("secciones/home.php");}
       elseif($_GET["seccion"]=="contacto"){
@@ -74,7 +75,6 @@ $seccion = "home";
       require_once("secciones/home.php");
       };
       ?>
-
 
         <!--FOOTER-->
     <?php
