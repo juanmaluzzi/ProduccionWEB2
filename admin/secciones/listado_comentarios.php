@@ -23,7 +23,8 @@
                 </thead>
                 <tbody>
                 <?php
-                           foreach($Productos->getProductos($_GET) as $productos){ 
+
+                           foreach($Productos->getComentarioProductos($_GET) as $productos){ 
                                if($productos['id_producto'] != null){
                 ?>
                             <tr>
