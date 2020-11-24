@@ -32,6 +32,11 @@
             $query = "SELECT * FROM perfiles;";
             return $this->con->query($query);
 		}
+
+		public function getPerfil($id){
+            $query = "SELECT * FROM perfiles WHERE id_perfil = $id;";
+            return $this->con->query($query);
+		}
 		
 		public function getUsrs(){
             $query = "SELECT usr, usr_perfil, email, id_usr FROM usuarios;";
@@ -44,10 +49,16 @@
 			return 'Usuario borrado';
 		}
 
-		public function getUsr($usr){
+		public function getUsr($usr){			
 			$query = "SELECT * FROM usuarios WHERE usr = '$usr';";
 			return $this->con->query($query);
 		}
+
+		public function getUsrID($id){			
+			$query = "SELECT * FROM usuarios WHERE id_usr = '$id';";
+			return $this->con->query($query);
+		}
+
 
 		public function editarUsr($id,$nomUsr,$password,$perfil,$email){
 

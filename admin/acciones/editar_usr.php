@@ -10,12 +10,13 @@ $perfil = $_POST["perfil"];
 $usuario = $_POST["usuario"];
 $password = $_POST["password"];
 
-if(!isset($perfil)):
-    $perfil = 3;
-    endif;
+print_r($_POST);
+echo 'Email: ' .$email.
+' <br>Perfil: '.$perfil.
+' <br>Usuario: '.$usuario.
+' <br>Password: '.$password.'';
 
-$mensaje = $Usuario->addUsr($usuario,$password,$perfil,$email);
-  print($mensaje);
+$Usuario->editarUsr($_GET['id'],$usuario,$password,$perfil,$email);
 
-  header("Location:../index.php?seccion=abmusuarios");
-die();
+//  header("Location:../index.php?seccion=abmusuarios");
+//die();
