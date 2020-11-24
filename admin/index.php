@@ -73,6 +73,9 @@ $Categoria = new Categoria($con);
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     
      <ul class="navbar-nav">
+     <li class="nav-item <?= $seccion == "listado_comentarios" ? "active" : ""; ?>">
+        <a class="nav-link" href="index.php?seccion=listado_comentarios">Listado de comentarios</a>
+      </li> 
         <li class="nav-item <?= $seccion == "listado_prod" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=listado_prod">Listado de productos</a>
       </li> 
@@ -97,8 +100,12 @@ $Categoria = new Categoria($con);
       require_once("secciones/nuevo_prod.php");}
       elseif($_GET["seccion"]=="abmusuarios"){
       require_once("secciones/abmusuarios.php");}
+      elseif($_GET["seccion"]=="listado_comentarios"){
+        require_once("secciones/listado_comentarios.php");}
       elseif($_GET["seccion"]=="crearusr"){
         require_once("secciones/crear_usuario.php");}
+        elseif($_GET["seccion"]=="borrar_prod"){
+          require_once("secciones/borrar_prod.php");}
       else{
       ?>
       <div class="container">

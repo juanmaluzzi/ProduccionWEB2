@@ -12,18 +12,21 @@
 
 
 		public function getUnProducto($filtro){
-		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
+		$query = "SELECT p.id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa, co.comentario
 			FROM productos as p INNER JOIN marcas as m on p.marcas_id = m.id
 			INNER JOIN cepa as c on p.cepa_id = c.id_cepa
+			INNER JOIN comentarios as co on co.producto_id=p.id_producto
 			WHERE id_producto = $filtro";
 			return $this->con->query($query);
 		}
 
 		public function getProductos($filtros = array()){
 
-		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca
+		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usuario,co.comentarios_id
 					FROM productos as p 
-					INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id ";
+					INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id 
+					INNER JOIN comentarios as co on co.producto_id=p.id_producto
+					INNER JOIN usuarios as u on u.id=co.usuario_id";
 		//$where = array();
 
 		if(!empty($filtros['cepa']) && !empty($filtros['marca'])){
