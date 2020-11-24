@@ -48,6 +48,32 @@
 			$query = "SELECT * FROM usuarios WHERE usr = '$usr';";
 			return $this->con->query($query);
 		}
+
+		public function editarUsr($id,$nomUsr,$password,$perfil,$email){
+
+			foreach($this->getUsr($id) as $usuario){
+
+				if(empty($nomUsr)){
+					$unoUsr = $usuario['usr'];
+				}
+				if(empty($password)){
+					$password = $usuario['pass'];
+				}
+				if(empty($perfil)){
+					$perfil = $usuario['usr_perfil'];
+				}
+				if(empty($email)){
+					$email = $usuario['email'];
+				}
+
+				$query = "UPDATE usuarios SET usr = '$nomUsr', pass='$password',usr_perfil = '$perfil', email='$email' WHERE id_usr = '$id' ; ";
+				$this->con->exec($query);
+				
+				return 'Usuario modificado';				
+			}
+			
+
+		}
 		
 	}
 	
