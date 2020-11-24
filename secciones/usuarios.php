@@ -6,7 +6,7 @@
 
 if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['usuario']) ){
 
-    $sql= "INSERT INTO usuarios_cl (usuario,email,password) VALUES (:usuario, :email,:password)";
+    $sql= "INSERT INTO usuarios (usuario,email,password,user_perfil) VALUES (:usuario, :email,:password,3)";
     $stmt = $con->prepare($sql);
     $stmt -> bindParam(':usuario',$_POST['usuario']);
     $stmt -> bindParam(':email',$_POST['email']);
@@ -33,16 +33,16 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['usuar
                     
                         <div class="form-group">
                         <label class="text-dark"for="usuario">Usuario</label>
-                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese un nombre de usuario">
+                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese un nombre de usuario" required>
                         </div>
                         <div class="form-group">
                         <label class="text-dark"for="usuario">Email</label>
-                        <input type="email" class="form-control" name="email" id="email"  placeholder="Ingrese un email válido">
+                        <input type="email" class="form-control" name="email" id="email"  placeholder="Ingrese un email válido" required>
                         </div>
 
                         <div class="form-group">
                         <label class="text-dark"for="password">Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="************">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="************" required>
                         </div>
                         <div class="dropdown">
     

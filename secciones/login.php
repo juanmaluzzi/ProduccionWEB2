@@ -9,7 +9,7 @@ if (isset($_SESSION['user_id'])){
 
 if(!empty($_POST['usuario']) && !empty($_POST['password'])){
 
-    $base = $con->prepare('SELECT id,email,password,usuario FROM usuarios_cl WHERE usuario=:usuario');
+    $base = $con->prepare('SELECT id,email,password,usuario FROM usuarios WHERE usuario=:usuario');
     $base->bindParam(':usuario',$_POST['usuario']);
     $base->execute();
     $rta = $base->fetch (PDO::FETCH_ASSOC);
@@ -17,7 +17,7 @@ if(!empty($_POST['usuario']) && !empty($_POST['password'])){
     
     $message = '';
 
-   if (count($rta)>0 && password_verify($_POST['password'], $rta['password']) ) {
+   if (count($rta)>0 && password_verify($_POST['password'], $rta['password'])) {
         $_SESSION['user_id'] = $rta['id'] ;
         header("Location: index.php?seccion=home");
 }else{
@@ -43,12 +43,12 @@ if(!empty($_POST['usuario']) && !empty($_POST['password'])){
 
                         <div class="form-group">
                         <label class="text-dark"for="usuario">Usuario</label>
-                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese usuario">
+                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese usuario" required>
                         </div>
                        
                         <div class="form-group">
                         <label class="text-dark"for="password">Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="************">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="************" required>
                         </div>
                         <div class="dropdown">
     

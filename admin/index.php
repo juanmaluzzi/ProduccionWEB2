@@ -21,11 +21,19 @@
 
   <?php 
 
-require_once '../inc/mysql_login.php'; 
+  
+if(!isset($_GET['seccion'])):
+  $_GET['seccion'] = '';
+endif;
+$seccion = $_GET['seccion'];
+
+
+require_once ('../inc/mysql_login.php'); 
 require_once('../clases/productos.php');
 require_once('../clases/marca.php'); 
 require_once('../clases/cepa.php');
 require_once('../clases/categoria.php');
+require_once ('../inc/config.php'); 
 date_default_timezone_set('America/Argentina/Buenos_Aires');
   try { 
          $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
@@ -38,11 +46,14 @@ date_default_timezone_set('America/Argentina/Buenos_Aires');
 
       die ();
       } 
+
     
+  
 $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
 $Categoria = new Categoria($con);
+
 
 ?>
 </head>
@@ -71,7 +82,7 @@ $Categoria = new Categoria($con);
         <a class="nav-link" href="index.php?seccion=abmusuarios">Listado de usuarios</a>
       </li>
       <li class="nav-item">
-          <a href="../index.php" class="nav-link">Volver</a>
+      <a href="index.php" class="nav-link">Volver</a>
       </li>
     </ul>
   </div> 
@@ -94,26 +105,25 @@ $Categoria = new Categoria($con);
         <div class="col-12 col-md-6">
             <div class="card bg-dark my-5">
                 <div class="card-body border-white">
-                    <form action="acciones/login.php" method="post">
+                <?php
+
+      if(isset($_SESSION['estado']) && $_SESSION['estado'] == 'logueado'){
+        ?>
+                     <form action="acciones/logout.php" method="post">
                     
                             <div class="row justify-content-center">
                               <div class="col-12 col-md-6">
-                                  <h2 class="text-center my-2">Iniciar sesión</h2>
+                              <h2 class="text-center my-2">Bienvenida/o <?= $_SESSION['usuario']['nombre'] ?></h2>
                               </div>
                             </div>
 
-                        <div class="form-group">
-                        <label class="text-color-light"for="usuario">Usuario o Email</label>
-                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese su usuario o email">
-                        </div>
-
-                        <div class="form-group">
-                        <label class="text-color-light"for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="************">
-                        </div>
-
-                        <button type="submit" class="btn btn-outline-light d-block m-auto">Ingresar</button>
+                            <button type="submit" class="btn btn-outline-light d-block m-auto">Cerrar sesión</button>
                     </form>
+                    <?php
+
+
+}else{require_once('secciones/loginbox.php');}
+?>
                 </div>
             </div>    
         </div>
