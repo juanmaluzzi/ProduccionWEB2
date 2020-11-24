@@ -53,7 +53,7 @@ $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
 $Categoria = new Categoria($con);
-$Usuario = new Usuario($con);
+
 
 
 ?>
