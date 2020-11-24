@@ -38,7 +38,7 @@ date_default_timezone_set('America/Argentina/Buenos_Aires');
   try { 
          $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
 
-      print "conexion buena";
+     // print "conexion buena";
       } 
 
       catch (PDOException $e)    { 
@@ -53,6 +53,7 @@ $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
 $Categoria = new Categoria($con);
+$Usuario = new Usuario($con);
 
 
 ?>

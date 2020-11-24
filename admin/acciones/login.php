@@ -15,9 +15,9 @@ endif;
 
 $usr = $_POST["usuario"];
 $password = $_POST["password"];
-
-foreach($Usuario->getUsrs($usr) as $datosUsr){
-
+        
+foreach($Usuario->getUsr($usr) as $datosUsr){
+    
     if(password_verify($password,$datosUsr['pass'])){
         $_SESSION['usuario'] = [
             'nombre' => $datosUsr['usr'],
@@ -34,6 +34,5 @@ foreach($Usuario->getUsrs($usr) as $datosUsr){
             $_SESSION["mensaje"] = "Los datos ingresados son incorrectos";
             header("Location:../index.php?error=camposincorrectos");
         }
-    }	
 
-    ?>
+    }	

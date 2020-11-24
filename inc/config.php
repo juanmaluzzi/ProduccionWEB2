@@ -14,4 +14,4 @@ try {
 
  die ();
  } 
- session_start(); 
+ session_start();

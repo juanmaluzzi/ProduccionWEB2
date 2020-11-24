@@ -1,5 +1,5 @@
 <form action="acciones/login.php" method="post">
-
+                    
                     <div class="row justify-content-center">
                       <div class="col-12 col-md-6">
                           <h2 class="text-center my-2">Iniciar sesión</h2>
@@ -14,4 +14,4 @@
                 <input type="password" class="form-control" name="password" id="password" placeholder="************">
                 </div>
                 <button type="submit" class="btn btn-outline-light d-block m-auto">Ingresar</button>
-            </form> 
+            </form>
