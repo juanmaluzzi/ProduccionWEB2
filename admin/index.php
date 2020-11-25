@@ -100,21 +100,23 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
       require_once("secciones/listado_prod.php");
       }
       elseif($_GET["seccion"]=="nuevo_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
-      require_once("secciones/nuevo_prod.php");}
+      require_once("secciones/nuevo_prod.php");
+    }
       elseif($_GET["seccion"]=="abmusuarios" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
-      require_once("secciones/abmusuarios.php");}
+      require_once("secciones/abmusuarios.php");
+    }
       elseif($_GET["seccion"]=="crearusr" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
-        require_once("secciones/crear_usuario.php");}       
+        require_once("secciones/crear_usuario.php");
+      }       
       ?>
+                <?php
+                  if($log == 'in' && $_GET['seccion'] == ''){
+                ?>
       <div class="container">
     <div class="row text-light justify-content-center">
         <div class="col-12 col-md-6">
             <div class="card bg-dark my-5">
                 <div class="card-body border-white">
-                <?php
-//}CIERRE FOREACH
-                  if($log == 'in'){
-                ?>
                     <form action="acciones/logout.php" method="post">
                             <div class="row justify-content-center">
                               <div class="col-12 col-md-6">
@@ -124,21 +126,17 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
 
                         <button type="submit" class="btn btn-outline-light d-block m-auto">Cerrar sesión</button>
                     </form>
-                  <?php
-                                 
-                                
-                              }else{require_once('secciones/loginbox.php');}
-                  ?>
                 </div>
             </div>    
         </div>
     </div>
-
 </div>
+<?php
+                                 }
+                                 elseif($log != 'in' && $_GET['seccion'] == ''){require_once('secciones/loginbox.php');}
+                  ?>
+           
       </main>
-      <?php 
-
-      ?>
  <!-- .site-wrap -->
 
 

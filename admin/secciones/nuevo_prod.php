@@ -1,23 +1,5 @@
 <?php
 
-//    $titulo = "Nuevo producto";
-//    $submit = "Cargar";
-//    $action = "cargar_producto";
-//
-//    if(!empty($_GET["id"])):
-//        $idProducto = $_GET["id"];
-//        
-//        if(!is_dir(RUTA_TRACKS . "/$nombreEp")):
-//            header("Location:index.php?seccion=listado_prod&estado=error&error=prod_inexistente");
-//            die();
-//        endif;
-//
-//        $nombre = mostrar_nombre_ep($nombreEp);
-//        $submit = "Editar";
-//        $action = "editar_prod";
-//
-//    endif;
-//
 $titulo = "nuevo / editar";
 ?>
 

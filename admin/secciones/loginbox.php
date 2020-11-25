@@ -1,5 +1,9 @@
-
-<form action="acciones/login.php" method="post">
+<div class="container">
+    <div class="row text-light justify-content-center">
+        <div class="col-12 col-md-6">
+            <div class="card bg-dark my-5">
+                <div class="card-body border-white">
+                  <form action="acciones/login.php" method="post">
                     
                     <div class="row justify-content-center">
                       <div class="col-12 col-md-6">
@@ -18,4 +22,9 @@
                 </div>
 
                 <button type="submit" class="btn btn-outline-light d-block m-auto">Ingresar</button>
-            </form>
+                </form>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
