@@ -1,6 +1,7 @@
 <?php 
     session_start();
     require_once 'inc/mysql_login.php'; 
+    require_once 'inc/config.php'; 
      require_once('clases/productos.php');
      require_once('clases/marca.php'); 
       require_once('clases/cepa.php');
@@ -13,8 +14,13 @@
     try { 
            $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
 
+<<<<<<< HEAD
       print "conexion buena";
        } 
+=======
+       // print "conexion buena";
+        } 
+>>>>>>> Franco
 
         catch (PDOException $e)    { 
         print "!NO CONECTA: " .$e->getMessage();

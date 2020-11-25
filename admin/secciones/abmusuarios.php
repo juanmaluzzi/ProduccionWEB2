@@ -24,6 +24,7 @@
                     <tbody>
                     <?php
 
+<<<<<<< HEAD
                     
 
                         foreach($Usuario->getUsrs() as $usuario){
@@ -32,13 +33,27 @@
                                     <td><?= $usuario['usuario']; ?></td>
                                     <td><?= $usuario['email']; ?></td>
                                     <td><?= $usuario['user_perfil']; ?></td>
+=======
+                        foreach($Usuario->getUsrs() as $usuario){
+                        ?>
+                                <tr>
+                                    <td><?= $usuario['usr']; ?></td>
+                                    <td><?= $usuario['email']; ?></td>
+                                    <td><?= $usuario['usr_perfil']; ?></td>
+>>>>>>> Franco
 
                                     <td>
                                     
                                         <div class="btn-group" role="group" aria-label="">
+<<<<<<< HEAD
                                             <a type="button" class="btn btn-dark text-light btn-sm" href="index.php?seccion=crearusr&id=<?= $usuario['id'] ?>">Editar</a>
                                             <form action="acciones/registro.php" method="POST">
                                                 <input type="hidden" name="borrar_usr" value="<?= $usuario['id'] ?>">
+=======
+                                            <a type="button" class="btn btn-dark text-light btn-sm" href="index.php?seccion=crearusr&id=<?= $usuario['id_usr'] ?>">Editar</a>
+                                            <form action="acciones/registro.php" method="POST">
+                                                <input type="hidden" name="borrar_usr" value="<?= $usuario['id_usr'] ?>">
+>>>>>>> Franco
                                                 <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
                                             </form>
                                         </div>

@@ -34,10 +34,16 @@
 
 		public function getProductos($filtros = array()){
 
-		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca
+		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa, cat.categoria as nombreCat
 					FROM productos as p 
+<<<<<<< HEAD
 					INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id" ;
 					
+=======
+					INNER JOIN cepa as c on p.cepa_id = c.id_cepa
+					INNER JOIN marcas as m on p.marcas_id = m.id 
+					INNER JOIN categoria as cat on p.categoria_id = cat.id ";
+>>>>>>> Franco
 		//$where = array();
 
 		if(!empty($filtros['cepa']) && !empty($filtros['marca'])){
