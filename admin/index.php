@@ -84,7 +84,7 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
   
   ?>
-        <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
+        <li class="nav-item <?= $seccion == "listado_comentarios" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=listado_comentarios">Listado de comentarios</a>
       </li>
 

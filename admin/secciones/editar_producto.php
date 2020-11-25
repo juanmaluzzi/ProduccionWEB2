@@ -84,7 +84,7 @@ print( $Productos->edit($_POST));
                                 <textarea class="form-control" name="categoria" id="categoria" rows="1" placeholder="Ejemplo: Blanco, Rosado, Tinto"><?php echo isset($productos['categoria_id'])?$productos['categoria_id']:'';?></textarea>
                             <label for="bodega">Bodega</label>
                                  <textarea class="form-control" name="bodega" id="bodega" rows="1">
-                                 <?php echo isset($productos['marca_id'])?$productos['marca_id']:'';?></textarea>
+                                 <?php echo isset($productos['marcas_id'])?$productos['marcas_id']:'';?></textarea>
                             <label for="cepa">Cepa</label>
                                  <textarea class="form-control" name="cepa" id="cepa" rows="1">
                                  <?php echo isset($productos['cepa_id'])?$productos['cepa_id']:'';?></textarea>
