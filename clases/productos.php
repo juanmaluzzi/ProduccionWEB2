@@ -11,12 +11,6 @@
 		}
 
 
-	
-
-		
-		
-		
-
 		public function getUnProducto($filtro){
 		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
 			FROM productos as p INNER JOIN marcas as m on p.marcas_id = m.id

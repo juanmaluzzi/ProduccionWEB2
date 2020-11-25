@@ -1,41 +1,23 @@
  <?php
 
-if(isset($_POST['enviarcoment']))
-{
+
+  require_once ('clases/comentarios.php');
+
+  $Comentario = new Comentario($con);
     
-    // POST DE DATOS
-    $data = $_POST;
-    unset($data['enviarcoment']); // SACO EL ENVIARCOMENT PARA QUE NO APAREZCA BOTON
-    $data['Fecha'] = date('d/m/Y H:i:s'); 
-    $indexComentario = date ('YmdHis');
+
+
+    if(isset($_POST['enviarcoment']))
+    {
     
-    if (file_exists('comentarios.json')){
-        
-        $comentarioJson = file_get_contents('comentarios.json');
-        $comentarioArray = json_decode($comentarioJson,true);
-        
-    } else {
-        
-         $comentarioArray = array();
-        
-    }
+   
     
-    
-  
-$comentarioArray[$indexComentario] = $data;
-    
-    
-  
-    
- $fp = fopen('comentarios.json','w'); 
-    
- fwrite($fp,json_encode($comentarioArray));
-    
- fclose($fp);
+    $mensaje =   $Comentario-> saveComentario($_POST);
+
+     $comentarioArray = array();
 
 }
-    
-
+   
   ?>
 
 
@@ -158,7 +140,7 @@ $comentarioArray[$indexComentario] = $data;
               <div class="row-fluid">
                   <div class="form-group pl-2" style="font-size: 12px">
                       <label for="email">Email</label>
-                      <input name="Email" type="email" class="form-control form-control-lg" required>
+                      <input name="email" type="email" class="form-control form-control-lg" required>
                   </div>               
               </div>
               
@@ -166,8 +148,8 @@ $comentarioArray[$indexComentario] = $data;
               
               <div class="row-fluid">
                   <div class="form-group pl-2" style="font-size: 12px">
-                      <label for="mensaje">Mensaje</label>
-                      <textarea name="Comentario" id="mensaje" cols="80" rows="5" class="form-control" required></textarea>
+                      <label for="comentario">Mensaje</label>
+                      <textarea name="comentario" id="comentario" cols="80" rows="5" class="form-control" required></textarea>
                   </div>
               </div>
 
@@ -225,27 +207,47 @@ $comentarioArray[$indexComentario] = $data;
       <div class="site-section bg-light">
       <div class="container">
         <div class="owl-carousel owl-slide-3 ">
+        <?php 
+
+        if (!empty ($mensaje)){
+        echo $mensaje;
+         
+        }
+
+        ?>
+        
         <?php
-						if(file_exists('comentarios.json')){
-							$comentarioJson = file_get_contents('comentarios.json');
-							$comentarioArray = json_decode($comentarioJson,true );
-							krsort($comentarioArray);
-							$cantidad = 0;
-							foreach($comentarioArray as $comentario){
-								if($comentario['id_producto'] == $_GET['productos']){ 
-									$cantidad++;
-									if($cantidad == 11) {
-                    break; }
-									?>
+        //pruebo $id que este bien
+       // echo $id;?>
+        
+        <?php 
+
+      // $id ya esta inicializado arriba con $_GET productos
+ 
+
+          foreach($Comentario->getComentario($id) as $comentario){        
+       
+			?>
+      
           <blockquote class="testimony">
           <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image">
           <p class="small text-primary">
-          <?php echo $comentario['Email'] ?>
+          <?php echo $comentario['email'] ?>
              <br>   
-          <?php echo $comentario['Fecha'] ?></p>
+          <?php echo $comentario['fecha'] ?></p>
           </p>
 
-          <p class="small text-primary"><?php switch ($comentario['rankeo']) {
+          <p class="small text-primary">
+          <?php
+          switch ($comentario['rankeo']) {
+                     case "0":
+                               echo '<span class="icon-star-o"></span>
+                               <span class="icon-star-o"></span>
+                               <span class="icon-star-o"></span>
+                               <span class="icon-star-o"></span>
+                               <span class="icon-star-o"></span>'
+                               ;
+                               break;
                      case "1":
                                echo '<span class="icon-star"></span>
                                <span class="icon-star-o"></span>
@@ -288,13 +290,12 @@ $comentarioArray[$indexComentario] = $data;
                               ;
                            break;
 } ?></p>
-            <p>&ldquo;<?php echo $comentario['Comentario'] ?>&rdquo;</p>
+            <p>&ldquo;<?php echo $comentario['comentario'] ?>&rdquo;</p>
             
           </blockquote>
           <?php 
-                }
-              }
-            }
+              }  
+              
           ?>
           
         </div>
