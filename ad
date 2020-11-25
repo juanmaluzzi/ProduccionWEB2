@@ -1,0 +1,289 @@
+[33mcommit bf49eef981b58e9ba97428d72e5c960a26259af2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Nov 25 16:04:55 2020 -0300
+
+    comentariosbien
+
+[33mcommit 7938b96cbf674a5bf6e7e9f8b65ee11cdf1dba48[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 21:58:39 2020 -0300
+
+    finalizadocasitodo
+
+[33mcommit 4320d0d62d21ca222e0b83f167ab8d80fe63594b[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 03:39:15 2020 -0300
+
+    funcando
+
+[33mcommit 1083482f27e49cdfa3c40e3f3aede94ae8b47f50[m[33m ([m[1;31morigin/tmp[m[33m, [m[1;32mtmp[m[33m)[m
+Merge: c0445a4 5efc645
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 03:17:02 2020 -0300
+
+    CAMBIOS
+
+[33mcommit c0445a446951811b02cff366423cf9ef07b28631[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 03:11:43 2020 -0300
+
+    abmcomentarios
+
+[33mcommit ce09e97fc71027268cda45fdfe9be70df884d3bf[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 01:43:25 2020 -0300
+
+    cambio
+
+[33mcommit 4e72a1642ac92f2ce9b97daa46496f67b640c2e8[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 01:42:23 2020 -0300
+
+    casitodo
+
+[33mcommit 2b82606e59b6f50d1b8500063b864c86ae68da2c[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Nov 24 00:29:23 2020 -0300
+
+    comentariosfuncionando
+
+[33mcommit 5efc645b4a2ac8210f84d44a8d084cdcb1fca8a7[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Mon Nov 23 18:54:12 2020 -0300
+
+    modificar
+
+[33mcommit 4e6be0549748bd1c549ce8da64e83fdb9c5b09ef[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Mon Nov 23 18:31:19 2020 -0300
+
+    algunos cambios
+
+[33mcommit a9a485bd0f55a9f4c3373ef722a62fb63967fc69[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Mon Nov 23 01:57:13 2020 -0300
+
+    login usuarios y logout
+
+[33mcommit a679c633833aea6af5395aeea9eaa55a826f4c59[m[33m ([m[1;32mjuanma[m[33m)[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Sat Nov 21 16:56:06 2020 -0300
+
+    usuariosenpagprinc
+
+[33mcommit 6602ade5701b932894832957aee164ddd9cab292[m[33m ([m[1;31morigin/Juanma[m[33m)[m
+Merge: 3da5527 30d938b
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Sat Nov 21 16:37:46 2020 -0300
+
+    Merge branch 'master' into Juanma
+
+[33mcommit 3da55275fb87597b19a9298936fbe57601edf6a2[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Fri Nov 20 01:48:02 2020 -0300
+
+    botones header
+
+[33mcommit d55ba68e58f2ea749af4adf8a795fceeffddca66[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Thu Nov 19 22:23:39 2020 -0300
+
+    comentarios funcionando
+
+[33mcommit f56595a455084335adbb52c470e9b84bc72765b1[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Thu Nov 19 21:49:52 2020 -0300
+
+    comentarios
+
+[33mcommit de732a3e9618c226cba485ac9d4f92dac4d22bc5[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Wed Nov 11 20:38:41 2020 -0300
+
+    carpeta admin y base con usuarios
+
+[33mcommit d49f6a71f20ef7e696b3722f27afcad610d75ed5[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 30 20:04:43 2020 -0300
+
+    ´FINALIZADOX2´
+
+[33mcommit 240460986c094ea7b8d31395d5aabd5bbe72a332[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 30 19:56:22 2020 -0300
+
+    ´FINALIZADO´
+
+[33mcommit 73288f3a99a02c8a067f3782657f6cdcf843bfdd[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 30 00:19:39 2020 -0300
+
+    boton href de index
+
+[33mcommit f15f903e284863ff3df398af152c8a7d9c815b6c[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 30 00:10:40 2020 -0300
+
+    shopproduct front
+
+[33mcommit 9f298503eee255263b3519093c02dd7a42dd51b3[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Tue Sep 29 14:59:21 2020 -0300
+
+    Juanma
+
+[33mcommit 746f869fadc5e8eb7e9a4dc49a6a31e4e0af86f0[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Tue Sep 29 14:43:43 2020 -0300
+
+    Juanma
+
+[33mcommit 241c347380e15cf668c78547182b7f926ad594c0[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Tue Sep 29 10:23:16 2020 -0300
+
+    Juanma
+
+[33mcommit 89ae27087e92948b0d6a7d3de6867e7a298ac8ad[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Mon Sep 28 12:38:23 2020 -0300
+
+    Juanma
+
+[33mcommit cd4ec67e19b54e6eca1c552b6f5dc36b6140ec65[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Mon Sep 28 11:08:12 2020 -0300
+
+    Juanma
+
+[33mcommit 7f7e985f70ef2b092a2a85e1ab17dc552c4b8989[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Sat Sep 26 03:08:28 2020 -0300
+
+    solo visual. faltan filtros y destacados
+
+[33mcommit 82f3640802dcc40f1c82552b4775a300813745ae[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Fri Sep 25 22:38:44 2020 -0300
+
+    indexprodcts
+
+[33mcommit ab52a1cc456151b0bdde5ca0cd3f1f8c753bb140[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Fri Sep 25 22:24:23 2020 -0300
+
+    funcionando shopproduct/ faltan filtros de shop
+
+[33mcommit b4fd5dd60a29e393f6fc60705a8b4d725bdfa869[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Fri Sep 25 19:36:53 2020 -0300
+
+    FOREACH
+
+[33mcommit 31ab95ab5ee9f908d2c59aed94945688a6c922ef[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Thu Sep 24 21:51:28 2020 -0300
+
+    FOREACH
+
+[33mcommit 0d3c82722ac1ee99a76ea0b50bace8501ab7595c[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Thu Sep 24 21:45:54 2020 -0300
+
+    FOREACH
+
+[33mcommit d27b6af834740f013a6054378fc1c85ac669a9b1[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Thu Sep 24 21:36:54 2020 -0300
+
+    FOREACH
+
+[33mcommit b90707267c05571694a964e65dfc87bf4ca35de5[m
+Merge: 4e623bb 57fe5b1
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Thu Sep 24 21:32:17 2020 -0300
+
+    FOREACH
+
+[33mcommit 4e623bba95e13655c4d816f5d071ad0200d9fe2b[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Thu Sep 24 21:22:40 2020 -0300
+
+    FOREACH
+
+[33mcommit 57fe5b1b5afd5c66b032379ab420ba41807d8711[m
+Merge: 5765551 396fbc2
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Thu Sep 24 21:05:40 2020 -0300
+
+    Merge branch 'Juanma' of https://github.com/juanmaluzzi/ProduccionWEB2 into Juanma
+
+[33mcommit 576555181d8a3b177d9d779ebadf4bca9573119f[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Thu Sep 24 21:03:18 2020 -0300
+
+    toco contacto
+
+[33mcommit 396fbc28867d859a13c29e3a1e6b2d70a74d53e5[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Thu Sep 24 20:57:45 2020 -0300
+
+    FOREACH
+
+[33mcommit ecf5760e776b9d5dfdcc80f0d2988d60b7b06ad1[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Thu Sep 24 18:48:03 2020 -0300
+
+    hay que revisar el foreach en shopproduct
+
+[33mcommit ee6512b3517b20160f1ffe62be73d6f552d6a2b1[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 23 02:45:28 2020 -0300
+
+    filtros casi funcionando
+
+[33mcommit 0234ac0f5967f74bc76e2406a6dfed8e44af220b[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 23 01:47:50 2020 -0300
+
+    cosas poir hacer
+
+[33mcommit 1f216014b758c097643ac986e5f356728e05c5f6[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 23 01:11:57 2020 -0300
+
+    eliminandojson
+
+[33mcommit 23f3aad36705f9ba1bc6f0c187186749dc7f0874[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Wed Sep 23 01:10:11 2020 -0300
+
+    varioscambios
+
+[33mcommit 522d45059f69ee58975e2ed16792e15630a65779[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Sep 22 22:07:37 2020 -0300
+
+    SHOPPRODUCT
+
+[33mcommit 30d938b63bce68ff255385c9d4eb20b612e60903[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Tue Sep 22 21:15:52 2020 -0300
+
+    cambio
+
+[33mcommit d00b381f6854aeff811f18fd328520f7451e0c6e[m
+Author: mac <mac@MacBook-Pro-de-mac.local>
+Date:   Tue Sep 22 21:02:13 2020 -0300
+
+    prueba
+
+[33mcommit b822a56009966252e4d39448325a45fee662ba05[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue Sep 22 03:06:45 2020 -0300
+
+    22-09
+
+[33mcommit 7bcef21a0a523e076f567d5f7d95b52f783146f2[m
+Author: juanmaluzzi <juan.luzzi@davinci.edu.ar>
+Date:   Tue S
