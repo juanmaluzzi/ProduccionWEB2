@@ -12,18 +12,32 @@
 
 
 		public function getUnProducto($filtro){
-		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
+		$query = "SELECT p.id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
 			FROM productos as p INNER JOIN marcas as m on p.marcas_id = m.id
 			INNER JOIN cepa as c on p.cepa_id = c.id_cepa
 			WHERE id_producto = $filtro";
 			return $this->con->query($query);
 		}
 
+		
+		public function getComentarioProductos($filtros = array()){
+
+			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id
+						FROM productos as p 
+						INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id 
+						INNER JOIN comentarios as co on co.producto_id=p.id_producto
+						INNER JOIN usuarios as u on u.id_usr=co.usuario_id";
+						
+						return $this->con->query($query);
+
+																}	
+
 		public function getProductos($filtros = array()){
 
 		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca
 					FROM productos as p 
-					INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id ";
+					INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id" ;
+					
 		//$where = array();
 
 		if(!empty($filtros['cepa']) && !empty($filtros['marca'])){
@@ -45,10 +59,10 @@
        }elseif($filtros['order'] == 2){
 	   	   $query .= '2 desc';
 	   }	
-else{
-$query .= '9 desc';
-}
-}
+			else{
+			$query .= '9 desc';
+			}
+			}
 	
 
 
@@ -65,7 +79,26 @@ $query .= '9 desc';
 
 
 
+			
+	public function del($id){
+
+		$query = 'SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = ' .$id.';';
+		$consulta = $this-> con->query ($query)->fetch();
+		
+		if ($consulta->cantidad ==0){
+		$sql = 'DELETE FROM comentarios WHERE comentarios_id = ' .$id. ';';
+		
+		$this-> con -> exec($sql);
+		return 1;
+		}
+		
+		return 'Comentario eliminado';
+		
+		}
 	}
+
+	
+	
 
 ?>
 
