@@ -21,16 +21,6 @@
 
   <?php 
 
-<<<<<<< HEAD
-  
-if(!isset($_GET['seccion'])):
-  $_GET['seccion'] = '';
-endif;
-$seccion = $_GET['seccion'];
-
-
-require_once ('../inc/mysql_login.php'); 
-=======
 
 if(!isset($_GET['seccion'])):
   $_GET['seccion'] = '';
@@ -40,40 +30,16 @@ $seccion = $_GET['seccion'];
 
 require_once '../inc/mysql_login.php'; 
 require_once '../inc/config.php'; 
->>>>>>> Franco
 require_once('../clases/productos.php');
 require_once('../clases/marca.php'); 
 require_once('../clases/cepa.php');
 require_once('../clases/categoria.php');
-<<<<<<< HEAD
-require_once ('../inc/config.php'); 
-date_default_timezone_set('America/Argentina/Buenos_Aires');
-  try { 
-         $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
-
-     // print "conexion buena";
-      } 
-
-      catch (PDOException $e)    { 
-      print "!NO CONECTA: " .$e->getMessage();
-
-      die ();
-      } 
-
-    
-  
-=======
 require_once('../clases/usuario.php');
     
->>>>>>> Franco
 $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
 $Categoria = new Categoria($con);
-<<<<<<< HEAD
-
-
-=======
 $Usuario = new Usuario($con);
 if(isset($_SESSION['estado']) && $_SESSION['estado'] == 'logueado'){
   $log = 'in';
@@ -81,35 +47,16 @@ if(isset($_SESSION['estado']) && $_SESSION['estado'] == 'logueado'){
   $log = 'off';
 }
 $i = 0;
->>>>>>> Franco
 
 ?>
 </head>
   <body>
-<<<<<<< HEAD
-  <?php
-  require_once '../inc/mysql_login.php'; 
-  ?>
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand col-5" href="../index.php?seccion=home"><h1>Wines CO.</h1></a>
-=======
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <a class="navbar-brand col-5" href="../index.php"><h1>Wines CO.</h1></a>
->>>>>>> Franco
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-<<<<<<< HEAD
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    
-     <ul class="navbar-nav">
-     <li class="nav-item <?= $seccion == "listado_comentarios" ? "active" : ""; ?>">
-        <a class="nav-link" href="index.php?seccion=listado_comentarios">Listado de comentarios</a>
-      </li> 
-=======
 <?php
  if($log == 'in'){
 ?>
@@ -119,41 +66,12 @@ $i = 0;
     <?php
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
     ?>
->>>>>>> Franco
         <li class="nav-item <?= $seccion == "listado_prod" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=listado_prod">Listado de productos</a>
       </li> 
         <li class="nav-item <?= $seccion == "nuevo_prod" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=nuevo_prod">Cargar nuevo producto</a>
       </li>
-<<<<<<< HEAD
-      <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
-        <a class="nav-link" href="index.php?seccion=abmusuarios">Listado de usuarios</a>
-      </li>
-      <li class="nav-item">
-      <a href="index.php" class="nav-link">Volver</a>
-      </li>
-    </ul>
-  </div> 
-</nav>
-<!--*********************FIN DEL NAV*************************-->
-<main class="mt-2 pt-0">
-<?php
-      if($_GET["seccion"]=="listado_prod"){
-      require_once("secciones/listado_prod.php");}
-      elseif($_GET["seccion"]=="nuevo_prod"){
-      require_once("secciones/nuevo_prod.php");}
-      elseif($_GET["seccion"]=="abmusuarios"){
-      require_once("secciones/abmusuarios.php");}
-      elseif($_GET["seccion"]=="listado_comentarios"){
-        require_once("secciones/listado_comentarios.php");}
-      elseif($_GET["seccion"]=="crearusr"){
-        require_once("secciones/crear_usuario.php");}
-        elseif($_GET["seccion"]=="borrar_prod"){
-          require_once("secciones/borrar_prod.php");}
-      else{
-      ?>
-=======
       <?php
 }
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
@@ -162,13 +80,22 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
         <a class="nav-link" href="index.php?seccion=abmusuarios">Listado de usuarios</a>
       </li>
 
-<?php } ?>
+<?php }
+if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
+  
+  ?>
+        <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
+        <a class="nav-link" href="index.php?seccion=listado_comentarios">Listado de comentarios</a>
+      </li>
+
  
        <li class="nav-item">
           <a href="index.php" class="nav-link">Volver</a>
       </li>
 
-<?php } ?>
+<?php
+}
+} ?>
 
     </ul>
   </div> 
@@ -178,49 +105,33 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
 <main class="mt-2 pt-0">
 <?php
 
-      if($_GET["seccion"]=="listado_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
-      require_once("secciones/listado_prod.php");
-      }
-      elseif($_GET["seccion"]=="nuevo_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
-      require_once("secciones/nuevo_prod.php");
+    if($_GET["seccion"]=="listado_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+    require_once("secciones/listado_prod.php");
     }
-      elseif($_GET["seccion"]=="abmusuarios" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
+    elseif($_GET["seccion"]=="nuevo_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+    require_once("secciones/nuevo_prod.php");
+    }
+    elseif($_GET["seccion"]=="editar_producto" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/editar_producto.php");
+    }  
+    elseif($_GET["seccion"]=="abmusuarios" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
       require_once("secciones/abmusuarios.php");
     }
-      elseif($_GET["seccion"]=="crearusr" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
-        require_once("secciones/crear_usuario.php");
-      }       
-      ?>
-                <?php
+    elseif($_GET["seccion"]=="crearusr" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
+      require_once("secciones/crear_usuario.php");
+    }       
+    elseif($_GET["seccion"]=="listado_comentarios" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
+      require_once("secciones/listado_comentarios.php");
+    }
+
                   if($log == 'in' && $_GET['seccion'] == ''){
+                
                 ?>
->>>>>>> Franco
       <div class="container">
     <div class="row text-light justify-content-center">
         <div class="col-12 col-md-6">
             <div class="card bg-dark my-5">
                 <div class="card-body border-white">
-<<<<<<< HEAD
-                <?php
-
-      if(isset($_SESSION['estado']) && $_SESSION['estado'] == 'logueado'){
-        ?>
-                     <form action="acciones/logout.php" method="post">
-                    
-                            <div class="row justify-content-center">
-                              <div class="col-12 col-md-6">
-                              <h2 class="text-center my-2">Bienvenida/o <?= $_SESSION['usuario']['nombre'] ?></h2>
-                              </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-outline-light d-block m-auto">Cerrar sesión</button>
-                    </form>
-                    <?php
-
-
-}else{require_once('secciones/loginbox.php');}
-?>
-=======
                     <form action="acciones/logout.php" method="post">
                             <div class="row justify-content-center">
                               <div class="col-12 col-md-6">
@@ -230,19 +141,10 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
 
                         <button type="submit" class="btn btn-outline-light d-block m-auto">Cerrar sesión</button>
                     </form>
->>>>>>> Franco
                 </div>
             </div>    
         </div>
     </div>
-<<<<<<< HEAD
-
-</div>
-      </main>
-      <?php 
-      } //FIN DEL IF 
-      ?>
-=======
 </div>
 <?php
                                  }
@@ -250,7 +152,6 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
                   ?>
            
       </main>
->>>>>>> Franco
  <!-- .site-wrap -->
 
 

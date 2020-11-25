@@ -1,32 +1,10 @@
 <?php 
-    session_start();
     require_once 'inc/mysql_login.php'; 
     require_once 'inc/config.php'; 
      require_once('clases/productos.php');
      require_once('clases/marca.php'); 
       require_once('clases/cepa.php');
       require_once('clases/categoria.php');
-    
-     
-     
-
-  
-    try { 
-           $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
-
-<<<<<<< HEAD
-      print "conexion buena";
-       } 
-=======
-       // print "conexion buena";
-        } 
->>>>>>> Franco
-
-        catch (PDOException $e)    { 
-        print "!NO CONECTA: " .$e->getMessage();
-
-        die ();
-        } 
         
     $Productos = new Productos($con);
     $Marca = new Marca($con);
@@ -75,9 +53,9 @@ if (isset($_SESSION['user_id'])){
 <div class="text-right mr-3 pt-3 text-black">
     Bienvenido <?= $user['usr'] ?>
     </div>
-    <button class="btn mt-3 float-right mr-3 " type="button">
-     <a href="index.php?seccion=logout">Desconectarse</a>
-    </button>
+      <button class="btn mt-3 float-right mr-3 " type="button">
+      <a href="index.php?seccion=logout">Desconectarse</a>
+      </button>
 
        <?php else:?>
 

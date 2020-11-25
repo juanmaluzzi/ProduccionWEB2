@@ -18,19 +18,11 @@ $password = $_POST["password"];
         
 foreach($Usuario->getUsr($usr) as $datosUsr){
     
-<<<<<<< HEAD
-    if(password_verify($password,$datosUsr['password'])){
-        $_SESSION['usuario'] = [
-            'nombre' => $datosUsr['usuario'],
-            'email' => $datosUsr['email'],
-            'perfil' => $datosUsr['user_perfil']
-=======
     if(password_verify($password,$datosUsr['pass'])){
         $_SESSION['usuario'] = [
             'nombre' => $datosUsr['usr'],
             'email' => $datosUsr['email'],
             'perfil' => $datosUsr['usr_perfil']
->>>>>>> Franco
         ];    
         $login = 'true';  
         $_SESSION["estado"] = "logueado";
@@ -43,8 +35,4 @@ foreach($Usuario->getUsr($usr) as $datosUsr){
             header("Location:../index.php?error=camposincorrectos");
         }
 
-<<<<<<< HEAD
     }	
-=======
-    }	
->>>>>>> Franco
