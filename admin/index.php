@@ -41,6 +41,12 @@ $Marca = new Marca($con);
 $Cepa = new Cepa($con);
 $Categoria = new Categoria($con);
 $Usuario = new Usuario($con);
+if(isset($_SESSION['estado']) && $_SESSION['estado'] == 'logueado'){
+  $log = 'in';
+}else{
+  $log = 'off';
+}
+$i = 0;
 
 ?>
 </head>
@@ -51,38 +57,54 @@ $Usuario = new Usuario($con);
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+<?php
+ if($log == 'in'){
+?>
   <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    
      <ul class="navbar-nav">
+    <?php
+if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+    ?>
         <li class="nav-item <?= $seccion == "listado_prod" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=listado_prod">Listado de productos</a>
       </li> 
         <li class="nav-item <?= $seccion == "nuevo_prod" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=nuevo_prod">Cargar nuevo producto</a>
       </li>
+      <?php
+}
+if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
+?>
       <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=abmusuarios">Listado de usuarios</a>
       </li>
-      <li class="nav-item">
+
+<?php } ?>
+ 
+       <li class="nav-item">
           <a href="index.php" class="nav-link">Volver</a>
       </li>
+
+<?php } ?>
+
     </ul>
   </div> 
 </nav>
+
 <!--*********************FIN DEL NAV*************************-->
 <main class="mt-2 pt-0">
 <?php
-      if($_GET["seccion"]=="listado_prod"){
-      require_once("secciones/listado_prod.php");}
-      elseif($_GET["seccion"]=="nuevo_prod"){
+
+      if($_GET["seccion"]=="listado_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/listado_prod.php");
+      }
+      elseif($_GET["seccion"]=="nuevo_prod" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
       require_once("secciones/nuevo_prod.php");}
-      elseif($_GET["seccion"]=="abmusuarios"){
+      elseif($_GET["seccion"]=="abmusuarios" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
       require_once("secciones/abmusuarios.php");}
-      elseif($_GET["seccion"]=="crearusr"){
-        require_once("secciones/crear_usuario.php");}
-      else{
+      elseif($_GET["seccion"]=="crearusr" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
+        require_once("secciones/crear_usuario.php");}       
       ?>
       <div class="container">
     <div class="row text-light justify-content-center">
@@ -90,8 +112,8 @@ $Usuario = new Usuario($con);
             <div class="card bg-dark my-5">
                 <div class="card-body border-white">
                 <?php
-              
-                  if(isset($_SESSION['estado']) && $_SESSION['estado'] == 'logueado'){
+//}CIERRE FOREACH
+                  if($log == 'in'){
                 ?>
                     <form action="acciones/logout.php" method="post">
                             <div class="row justify-content-center">
@@ -103,7 +125,7 @@ $Usuario = new Usuario($con);
                         <button type="submit" class="btn btn-outline-light d-block m-auto">Cerrar sesión</button>
                     </form>
                   <?php
-                              
+                                 
                                 
                               }else{require_once('secciones/loginbox.php');}
                   ?>
@@ -115,7 +137,7 @@ $Usuario = new Usuario($con);
 </div>
       </main>
       <?php 
-      } //FIN DEL IF 
+
       ?>
  <!-- .site-wrap -->
 

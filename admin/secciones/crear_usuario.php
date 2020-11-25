@@ -75,7 +75,7 @@ if(empty($_GET['id'])){
 ?>
                         <div class="form-group">
 
-                          <input type="text" class="form-control" name="id_usr" id="id_usr" value="<?= $idUsr ?>">
+                          <input type="hidden" class="form-control" name="id_usr" id="id_usr" value="<?= $idUsr ?>">
 
                           <label class="text-color-light"for="usuario">Nombre de usuario</label>
                           <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="<?= $usuario['usr'] ?>">
@@ -86,7 +86,7 @@ if(empty($_GET['id'])){
                           <label class="text-color-light"for="password">Password</label>
                           <input type="password" class="form-control" name="password" id="password" placeholder="************">
                           
-                          <label class="text-color-light"for="perfil">Perfil actual: <?php echo $perfilActual ?></label>
+                          <label class="text-color-light"for="perfil">Perfil actual: <span class="text-danger"><?php echo $perfilActual ?></span></label>
                           <select name="perfil" class="form-control" id="perfil">  
 
 
