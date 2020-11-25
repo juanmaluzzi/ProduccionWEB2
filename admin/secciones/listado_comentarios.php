@@ -36,15 +36,18 @@
                                 <td><?php echo $productos['usuario'] ?></td>
                                 <td class="text-center"><?php echo $productos['comentarios_id'] ?></td>
                                 <td>
-                                
-                                    <div class="btn-group" role="group" aria-label="">
-                                        
-                                        <form action="acciones/borrar_prod.php" method="post">
-                                    
-                                            <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
-                                        </form>
-                                    </div>
-                                
+                               
+                                 <?php       if (isset($_GET['del'])){
+                                        $resp = $Productos->del($_GET['del']);
+                                        if($resp > 0){
+                                        header ('Location: index.php?seccion=listado_comentarios');
+                                    }
+                                        echo '<script>alert("'.$resp.'");</script>';
+                                            }
+
+                                    ?>
+                                     <button type="button" class="btn  btn-sm"><a
+                                href="index.php?seccion=listado_comentarios&del=<?php echo $productos['comentarios_id']?>">Borrar</a></button>
                                 </td>
                             </tr>
                 <?php

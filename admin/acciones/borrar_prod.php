@@ -1,10 +1,5 @@
 <?php
 
-
-
-
-
-
 include ('../../inc/mysql_login.php');
 $con = new mysqli($hostname,$database,$username,$password,$puerto);
 $consulta ='';
@@ -19,7 +14,7 @@ function consulta(){
 
 function borrar ($id){
 global $con;
-$sql= "DELETE FROM comentarios WHERE comentarios_id={$id}";
+$sql= "DELETE FROM comentarios WHERE comentarios_id=$id";
 $con->query($sql);
 }
 

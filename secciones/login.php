@@ -29,8 +29,6 @@ if(!empty($_POST['usuario']) && !empty($_POST['password'])){
 ?>
 
 
-
-
 <div class="container">
 <div class="card-body border-white">
                     <form action="index.php?seccion=login" method="post">
