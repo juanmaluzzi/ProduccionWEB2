@@ -43,12 +43,13 @@
 <div class="header-top">
 
 <!-- session start para mostrar el usuario!  -->
+
 <?php 
 
 if (isset($_SESSION['user_id'])){
 
-  $base = $con -> prepare('SELECT id,usuario,password FROM usuarios WHERE id=:id');
-  $base -> bindParam(':id',$_SESSION['user_id']);
+  $base = $con -> prepare('SELECT id_usr,usr,pass FROM usuarios WHERE id_usr=:id_usr');
+  $base -> bindParam(':id_usr',$_SESSION['user_id']);
   $base -> execute();
   $rta = $base->fetch (PDO::FETCH_ASSOC);
 
@@ -66,7 +67,7 @@ if (isset($_SESSION['user_id'])){
 
        if (!empty($user)): ?>
 <div class="text-right mr-3 pt-3 text-black">
-    Bienvenido <?= $user['usuario'] ?>
+    Bienvenido <?= $user['usr'] ?>
     </div>
     <button class="btn mt-3 float-right mr-3 " type="button">
      <a href="index.php?seccion=logout">Desconectarse</a>

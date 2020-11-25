@@ -22,11 +22,11 @@
 		
 		public function getComentarioProductos($filtros = array()){
 
-			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usuario,co.comentarios_id
+			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id
 						FROM productos as p 
 						INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id 
 						INNER JOIN comentarios as co on co.producto_id=p.id_producto
-						INNER JOIN usuarios as u on u.id=co.usuario_id";
+						INNER JOIN usuarios as u on u.id_usr=co.usuario_id";
 						
 						return $this->con->query($query);
 

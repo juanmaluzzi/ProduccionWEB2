@@ -22,7 +22,7 @@
 			break;
 		}
 			
-			$query = "INSERT INTO usuarios (id,usuario,password,user_perfil,email) VALUES('0','$usuario','$password','$perfil','$email');";
+			$query = "INSERT INTO usuarios (id_usr,usuario,pass,usr_perfil,email) VALUES('0','$usuario','$password','$perfil','$email');";
 			$this->con->exec($query);
 			return 'ok';
 
@@ -34,12 +34,12 @@
 		}
 		
 		public function getUsrs(){
-            $query = "SELECT usuario, user_perfil, email, id FROM usuarios;";
+            $query = "SELECT usuario, usr_perfil, email, id_usr FROM usuarios;";
             return $this->con->query($query);
 		}
 
 		public function borrarUsr($id){
-			$query = "DELETE FROM usuarios WHERE id = $id;";
+			$query = "DELETE FROM usuarios WHERE id_usr = $id;";
 			$this->con->exec($query);
 			return 'Usuario borrado';
 		}
@@ -57,16 +57,16 @@
 					$unoUsr = $usuario['usuario'];
 				}
 				if(empty($password)){
-					$password = $usuario['password'];
+					$password = $usuario['pass'];
 				}
 				if(empty($perfil)){
-					$perfil = $usuario['user_perfil'];
+					$perfil = $usuario['usr_perfil'];
 				}
 				if(empty($email)){
 					$email = $usuario['email'];
 				}
 
-				$query = "UPDATE usuarios SET usuario = '$nomUsr', password='$password',user_perfil = '$perfil', email='$email' WHERE id = '$id' ; ";
+				$query = "UPDATE usuarios SET usuario = '$nomUsr', password='$password',usr_perfil = '$perfil', email='$email' WHERE id_usr = '$id' ; ";
 				$this->con->exec($query);
 				
 				return 'Usuario modificado';				

@@ -33,7 +33,7 @@
                                 <td><?php echo $productos['id_producto']?></td>
                                 <td><?php echo $productos['comentario'] ?></td>
                                 <td><?php echo $productos['email'] ?></td>
-                                <td><?php echo $productos['usuario'] ?></td>
+                                <td><?php echo $productos['usr'] ?></td>
                                 <td class="text-center"><?php echo $productos['comentarios_id'] ?></td>
                                 <td>
                                

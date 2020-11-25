@@ -15,7 +15,7 @@
 		public function getComentario($datos){
 			$query = "SELECT * FROM 
 			comentarios as c INNER JOIN productos as p on p.id_producto=c.producto_id
-			INNER JOIN usuarios as u on u.id=c.usuario_id
+			INNER JOIN usuarios as u on u.id_usr=c.usuario_id
 			WHERE c.producto_id=$datos";
 			return $this->con->query($query);
 		}

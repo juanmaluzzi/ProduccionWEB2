@@ -9,16 +9,16 @@ if (isset($_SESSION['user_id'])){
 
 if(!empty($_POST['usuario']) && !empty($_POST['password'])){
 
-    $base = $con->prepare('SELECT id,email,password,usuario FROM usuarios WHERE usuario=:usuario');
-    $base->bindParam(':usuario',$_POST['usuario']);
+    $base = $con->prepare('SELECT id_usr,email,pass,usr FROM usuarios WHERE usr=:usr');
+    $base->bindParam(':usr',$_POST['usuario']);
     $base->execute();
     $rta = $base->fetch (PDO::FETCH_ASSOC);
 
     
     $message = '';
 
-   if (count($rta)>0 && password_verify($_POST['password'], $rta['password'])) {
-        $_SESSION['user_id'] = $rta['id'] ;
+   if (count($rta)>0 && password_verify($_POST['password'], $rta['pass'])) {
+        $_SESSION['user_id'] = $rta['id_usr'] ;
         header("Location: index.php?seccion=home");
 }else{
     $message = 'Usuario o contraseña incorrectos';
@@ -27,6 +27,8 @@ if(!empty($_POST['usuario']) && !empty($_POST['password'])){
 
 }
 ?>
+
+
 
 
 <div class="container">
