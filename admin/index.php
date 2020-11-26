@@ -104,8 +104,6 @@ $Categoria = new Categoria($con);
         require_once("secciones/listado_comentarios.php");}
       elseif($_GET["seccion"]=="crearusr"){
         require_once("secciones/crear_usuario.php");}
-        elseif($_GET["seccion"]=="borrar_prod"){
-          require_once("secciones/borrar_prod.php");}
       else{
       ?>
       <div class="container">

@@ -247,7 +247,7 @@
           <blockquote class="testimony">
           <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image">
           <p class="small text-primary">
-          <?php echo $comentario['email'] ?>
+          <?php echo $comentario['usr'] ?>
              <br>   
           <?php echo $comentario['fecha'] ?></p>
           </p>

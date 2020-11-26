@@ -80,7 +80,7 @@
 
 
 			
-	public function del($id){
+	public function borrarComentario($id){
 
 		$query = 'SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = ' .$id.';';
 		$consulta = $this-> con->query ($query)->fetch();

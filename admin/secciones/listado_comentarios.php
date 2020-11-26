@@ -38,7 +38,7 @@
                                 <td>
                                
                                  <?php       if (isset($_GET['del'])){
-                                        $resp = $Productos->del($_GET['del']);
+                                        $resp = $Productos->borrarComentario($_GET['del']);
                                         if($resp > 0){
                                         header ('Location: index.php?seccion=listado_comentarios');
                                     }
