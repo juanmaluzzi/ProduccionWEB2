@@ -1,37 +1,74 @@
+<?php
+    
+    $message = '';
 
+if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['usuario']) ){
 
+    $sql= "INSERT INTO usuarios (usr,email,pass,usr_perfil) VALUES (:usr, :email,:pass,3)";
+    $stmt = $con->prepare($sql);
+    $stmt -> bindParam(':usr',$_POST['usuario']);
+    $stmt -> bindParam(':email',$_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt -> bindParam(':pass',$password);
+
+    if ($stmt->execute()){
+        $message = 'Usuario creado';
+    }else{
+      $message = 'Error al crear usuario';
+                        }
+                    }
+?>
 
 <div class="container">
 <div class="card-body border-white">
-                    <form action="acciones/login.php" method="post">
+                    <form action="index.php?seccion=usuarios" method="post">
                     
                             <div class="row justify-content-center">
                               <div class="col-12 col-md-6">
-                                  <h2 class="text-center my-2">Crear usuario</h2>
+                                  <h2 class="text-center text-dark my-2 pt-5">Crear usuario</h2>
                               </div>
                             </div>
-
+                    
                         <div class="form-group">
-                        <label class="text-color-light"for="usuario">Nombre de usuario</label>
-                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese un nombre de usuario">
+                        <label class="text-dark"for="usuario">Usuario</label>
+                        <input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Ingrese un nombre de usuario" required>
+                        </div>
+                        <div class="form-group">
+                        <label class="text-dark"for="usuario">Email</label>
+                        <input type="email" class="form-control" name="email" id="email"  placeholder="Ingrese un email válido" required>
                         </div>
 
                         <div class="form-group">
-                        <label class="text-color-light"for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="************">
+                        <label class="text-dark"for="password">Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="************" required>
                         </div>
                         <div class="dropdown">
     
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Perfil</button>
+                        <button class="btn btn-secondary text-dark bg-light" type="submit" id="botonusr"  aria-haspopup="true" aria-expanded="false">
+                        Registrarme</button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <?php foreach($Usuarios->getPerfil() as $perfil){ ?>
-                        <label class="dropdown-item"for="perfil"><?= $perfil ?></label>
-                        <input type="text" class="form-control" name="perfil" id="perfil"  placeholder="">
-        <?php }?>
-
+       
+     
       </div>
-                        <button type="submit" class="btn btn-outline-light d-block m-auto">Ingresar</button>
+                      
+                        
                     </form>
+
+                    <!--  boton para ir a login -->
+                    <div class="text-dark text-center font-size-14px">
+                    <?php
+
+                    if (!empty($message)){ ?>
+
+                    <?= $message ?>
+
+                     <?php } ?>
+                        <br>
+                        <button class="btn btn-secondary text-dark bg-light" type="submit" id="botonlog" aria-haspopup="true">
+                        <a href="index.php?seccion=login">Iniciar sesión</a>
+                        </button>
+
+                     </div>
+
                 </div>
 </div>

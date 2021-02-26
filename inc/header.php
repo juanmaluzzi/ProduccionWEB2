@@ -1,24 +1,10 @@
 <?php 
-
     require_once 'inc/mysql_login.php'; 
+    require_once 'inc/config.php'; 
      require_once('clases/productos.php');
      require_once('clases/marca.php'); 
       require_once('clases/cepa.php');
       require_once('clases/categoria.php');
-
-
-  
-  //  try { 
-           $con = new PDO ('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
-
- /*     print "conexion buena";
-       } */
-
-   /*     catch (PDOException $e)    { 
-        print "!NO CONECTA: " .$e->getMessage();
-
-        die ();
-        } */
         
     $Productos = new Productos($con);
     $Marca = new Marca($con);
@@ -39,12 +25,57 @@
 </div>
 
 <div class="header-top">
-<button class="btn mt-3 float-right mr-3 " type="button">
+
+<!-- session start para mostrar el usuario!  -->
+
+<?php 
+
+if (isset($_SESSION['user_id'])){
+
+  $base = $con -> prepare('SELECT id_usr,usr,pass FROM usuarios WHERE id_usr=:id_usr');
+  $base -> bindParam(':id_usr',$_SESSION['user_id']);
+  $base -> execute();
+  $rta = $base->fetch (PDO::FETCH_ASSOC);
+
+  $user = null;
+
+  if (count($rta)>0){
+
+    $user = $rta;
+  }
+
+} 
+?>
+<!-- INICIAR SESION/ REGISTRO / LOGOUT BOTONESSSSS -->
+<?php  
+
+       if (!empty($user)): ?>
+<div class="text-right mr-3 pt-3 text-black">
+    Bienvenido <?= $user['usr'] ?>
+    </div>
+      <button class="btn mt-3 float-right mr-3 " type="button">
+      <a href="index.php?seccion=logout">Desconectarse</a>
+      </button>
+
+       <?php else:?>
+
+      <button class="btn mt-3 float-right mr-3 " type="button">
+      <a href="index.php?seccion=usuarios">Registrarse</a>
+      </button>
+      <button class="btn mt-3 float-right mr-3 " type="button">
+      <a href="index.php?seccion=login">Iniciar sesión</a>
+      </button>
+          <?php 
+      endif;?>
+  
+ <!-- <button class="btn mt-3 float-right mr-3 " type="button">
 <a href="index.php?seccion=usuarios">Registrarse</a>
 </button>
 <button class="btn mt-3 float-right mr-3 " type="button">
-<a href="index.php?seccion=logusuario">Iniciar sesión</a>
+<a href="index.php?seccion=login">Iniciar sesión</a>
 </button>
+
+-->
 
   <div class="container">
          

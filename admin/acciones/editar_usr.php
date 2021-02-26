@@ -1,30 +1,11 @@
 <?php
-    require_once("../../config/config.php");
-    require_once("../../config/funciones.php");
+require_once '../../inc/mysql_login.php'; 
+require_once '../../inc/config.php';
+require_once('../../clases/usuario.php');
 
-$mail = $_GET["id"];
-$usuario = $_POST["usuario"];
-$perfil = $_POST["perfil"];
-$password = $_POST["password"];
+$Usuario = new Usuario($con); 
 
-if($perfil == "on"):
-$perfil = "admin";
-else:
-$perfil = "usuario";
-endif;
+$mensaje = $Usuario->editarUsr($_POST["id_usr"],$_POST["usuario"],$_POST["password"],$_POST["perfil"],$_POST["email"]);
 
-$password = password_hash($password, PASSWORD_DEFAULT);
-
-if(!$usuario == ""):
-file_put_contents(RUTA_USUARIOS . "/$mail/usuario.txt", $usuario);
-endif;
-if(!$perfil == ""):
-file_put_contents(RUTA_USUARIOS . "/$mail/perfil.txt", $perfil);
-endif;
-if(!$password == ""):
-file_put_contents(RUTA_USUARIOS . "/$mail/password.txt", $password);
-endif;
-header("Location:../index.php?seccion=abmusuarios&estado=ok&ok=usr_editado");
+header("Location:../index.php?seccion=abmusuarios");
 die();
-?>
-    

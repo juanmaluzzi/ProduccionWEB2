@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<?php
-
-$seccion = $_GET["seccion"];
-if($seccion == null){
-$seccion = "home";
-}
-?>
-
 <head>
   <title>Wines Co.</title>
   <meta charset="utf-8">
@@ -51,23 +43,29 @@ $seccion = "home";
     <!--HEADER-->
 
     <?php
-      if($_GET["seccion"]=="home"){
-      require_once("secciones/home.php");}
-      elseif($_GET["seccion"]=="contacto"){
-      require_once("secciones/contacto.php");}
-      elseif($_GET["seccion"]=="shop"){
-      require_once("secciones/shop.php");}
-      elseif($_GET["seccion"]=="shopproducto"){
-      require_once("secciones/shopproducto.php");}
-      elseif($_GET["seccion"]== "nosotros"){
-      require_once("secciones/nosotros.php");}
-      elseif($_GET["seccion"]== "usuarios"){
-      require_once("secciones/usuarios.php");}
-      elseif($_GET["seccion"]== "logusuario"){
-      require_once("secciones/logusuario.php");}
-      else{
-      require_once("secciones/home.php");
-      };
+ if(isset($_GET["seccion"])){ 
+  if($_GET["seccion"]=="home"){
+  require_once("secciones/home.php");}
+  elseif($_GET["seccion"]=="contacto"){
+  require_once("secciones/contacto.php");}
+  elseif($_GET["seccion"]=="shop"){
+  require_once("secciones/shop.php");}
+  elseif($_GET["seccion"]=="shopproducto"){
+  require_once("secciones/shopproducto.php");}
+  elseif($_GET["seccion"]== "nosotros"){
+  require_once("secciones/nosotros.php");}
+  elseif($_GET["seccion"]== "usuarios"){
+  require_once("secciones/usuarios.php");}
+  elseif($_GET["seccion"]== "logusuario"){
+  require_once("secciones/logusuario.php");}
+  elseif($_GET["seccion"]== "login"){
+    require_once("secciones/login.php");}
+    elseif($_GET["seccion"]== "logout"){
+      require_once("secciones/logout.php");}
+    }
+  else{
+  require_once("secciones/home.php");
+  };
       ?>
 
         <!--FOOTER-->

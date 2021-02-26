@@ -1,44 +1,32 @@
 <?php
+require_once '../../inc/mysql_login.php'; 
+require_once '../../inc/config.php';
+require_once('../../clases/usuario.php');
 
-require_once("../config/config.php");
-require_once("../config/funciones.php");
+$Usuario = new Usuario($con); 
 
+if(isset($_POST['borrar_usr'])):
+  $Usuario->borrarUsr($_POST['borrar_usr']);
+  header("Location:../index.php?seccion=abmusuarios");
+  die();
+endif;
 
-if(empty($_POST["email"]) || empty($_POST["password"])):
-    $_SESSION["estado"] = "error";
-    $_SESSION["mensaje"] = "Los campos email y password son obligatorios";
-
-    header("Location:../index.php?seccion=registrate");
+if(empty($_POST["usuario"]) || empty($_POST["password"])):
+    header("Location:../index.php?seccion=crearusr&mensaje=camposobligatorios");
     die();
 endif;
 
 $email = $_POST["email"];
+$perfil = $_POST["perfil"];
+$usuario = $_POST["usuario"];
 $password = $_POST["password"];
 
-$nuevoUsuario = explode("@",$email)[0];
+if(!isset($perfil)):
+    $perfil = 3;
+    endif;
 
-$usuario = !empty($_POST["usuario"]) ? $_POST["usuario"] : $nuevoUsuario;
+$mensaje = $Usuario->addUsr($usuario,$password,$perfil,$email);
+  print($mensaje);
 
-if(is_dir(RUTA_USUARIOS . "/$email")):
-    $_SESSION["estado"] = "error";
-    $_SESSION["mensaje"] = "El usuario ya existe en nuestro sitio";
-
-    header("Location:../index.php?seccion=registrate");
-    die();
-endif;
-
-mkdir(RUTA_USUARIOS . "/$email");
-
-file_put_contents(RUTA_USUARIOS . "/$email/usuario.txt", $usuario);
-
-file_put_contents(RUTA_USUARIOS . "/$email/perfil.txt", "usuario");
-
-$password = password_hash($password, PASSWORD_DEFAULT);
-
-file_put_contents(RUTA_USUARIOS . "/$email/password.txt",$password);
-
-$_SESSION["estado"] = "ok";
-$_SESSION["mensaje"] = "Ya podés ingresar con los datos con los que te registraste";
-
-
-header("Location: ../index.php?seccion=login");
+  header("Location:../index.php?seccion=abmusuarios");
+die();

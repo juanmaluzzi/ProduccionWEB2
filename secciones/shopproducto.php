@@ -128,23 +128,32 @@
           <div class="row-col-md-5 ">
           <div class="container-fluid">
           
+          <?php  
+
+              if (isset($_SESSION['user_id'])){
+
+          //    if (isset($_POST['enviarcoment'])){
+
+                  
+
+?>
             <h2 class="secction-tittle ml-5 mt-5 pt-5 font-size: 12px;" style="color: black">¡Dejanos tu comentario!</h2>
             <div class="container pt-2">
             <div class="row pt-5">
             
-            
+           
           
            <form  method="post" class="pl-5">
               
              
-              <div class="row-fluid">
+           <!--   <div class="row-fluid">
                   <div class="form-group pl-2" style="font-size: 12px">
                       <label for="email">Email</label>
                       <input name="email" type="email" class="form-control form-control-lg" required>
                   </div>               
               </div>
               
-              
+              -->
               
               <div class="row-fluid">
                   <div class="form-group pl-2" style="font-size: 12px">
@@ -183,16 +192,22 @@
                   </div>
 
               </div>
-        
+                   
         
         
         </form>  
                
             </div>
             
-             
+            <?php }else{  ?>
+                <br>
+          <h2 class="secction-tittle ml-5 mt-5 pt-5 font-size: 12px;" style="color: black">¡Inicia sesion para dejar un comentario!</h2>
+              
 
-    <?php  } ?>  
+          <?php  }  ?>
+
+    <?php 
+ } ?>  
          </div>
           </div>
           
@@ -223,7 +238,7 @@
         <?php 
 
       // $id ya esta inicializado arriba con $_GET productos
- 
+         
 
           foreach($Comentario->getComentario($id) as $comentario){        
        

@@ -1,4 +1,25 @@
+
 <div class="container mb-5">
+
+<?php 
+
+require_once('../inc/mysql_login.php');
+
+	  
+      $Productos = new Productos($con);
+     	
+      
+     if(isset($_GET['del'])){
+             $resp = $Productos->del($_GET['del']);
+             if($resp > 0){
+                 header('Location: index.php?seccion=listado_prod');	
+             }
+             echo '<script>alert("'.$resp.'");</script>';
+ 
+     }
+     
+ 
+         ?>
     
         <div class="col-12">
             <h2 class="text-center">
@@ -30,16 +51,16 @@
                                     <td><?php echo $productos['nombre']?></td>
                                     <td>$<?php echo $productos['precio']?></td>
                                     <td><?php echo $productos['nombreMarca']?></td>
-                                    <td><?php echo $productos['nombreCat'] ?></td>
-                                    <td><?php echo $productos['nombreCepa'] ?></td>
+                                    <td><?php echo $productos['categoria_id'] ?></td>
+                                    <td><?php echo $productos['cepa_id'] ?></td>
                                     <td>
                                     
                                         <div class="btn-group" role="group" aria-label="">
-                                            <a type="button" class="btn btn-dark text-light btn-sm" href="index.php?seccion=nuevo_prod&id=<?= $productos['id_producto']; ?>">Editar</a>
-                                            <form action="acciones/borrar_prod.php" method="POST">
-                                                <input type="hidden" name="id" value="<?= $productos['id_producto']; ?>">
-                                                <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
-                                            </form>
+                                            <a type="button" class="btn btn-dark text-light btn-sm" href="index.php?seccion=editar_producto&edit=<?php echo $productos['id_producto']?>">Editar</a>
+                                            
+                                               
+                                                <button type="button" class="btn btn-danger btn-sm"><a href="index.php?seccion=listado_prod&del=<?php echo $productos['id_producto']?>">Borrar</a></button>
+                                            </a>
                                         </div>
                                     
                                     </td>
@@ -49,9 +70,12 @@
                     ?>
                      <h2 class="alert text-center">No hay productos cargados</h2>
                             <?php
+                            
                         } //FIN DEL IFELSE
                     } //FIN DEL FOREACH
-                            ?>
+                          
+                          
+                          ?>
                             </tbody>
                         </table>    
                     </div>

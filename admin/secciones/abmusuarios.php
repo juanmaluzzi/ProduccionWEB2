@@ -6,11 +6,12 @@
     </div>
     
     <div>
-    <a type="button" class="btn btn-dark text-light btn-sm" href="index.php?seccion=crearusr">Crear nuevo usuario</a>
+    <a type="button" class="btn btn-dark text-light btn-sm mb-2" href="index.php?seccion=crearusr">Crear nuevo usuario</a>
     </div>
     
     <div class="card mb-5">
         <div class="col-12">
+
             <table class="table">
                 <thead>
                     <tr>
@@ -23,28 +24,30 @@
                     <tbody>
                     <?php
 
-                        //$usuario = ; ******* ARMAR QUERY QUE TRAIGA USUARIOS *************
-                        //$perfil = ; ******* ARMAR QUERY QUE TRAIGA PERFILES *************
-                        //$permisos = ; ******* ARMAR QUERY QUE TRAIGA PERMISOS *************
+                        foreach($Usuario->getUsrs() as $usuario){
                         ?>
                                 <tr>
-                                    <td><?= $usuario; ?></td>
-                                    <td><?= $mail; ?></td>
-                                    <td><?= $perfil; ?></td>
+                                    <td><?= $usuario['usr']; ?></td>
+                                    <td><?= $usuario['email']; ?></td>
+                                    <td><?= $usuario['usr_perfil']; ?></td>
 
                                     <td>
                                     
                                         <div class="btn-group" role="group" aria-label="">
-                                            <a type="button" class="btn btn-dark text-light btn-sm" href="../index.php?seccion=registrate&id=<?= $mail; ?>">Editar</a>
-                                            <form action="acciones/borrar_usr.php" method="POST">
-                                                <input type="hidden" name="id" value="<?= $mail; ?>">
+                                            <a type="button" class="btn btn-dark text-light btn-sm" href="index.php?seccion=crearusr&id=<?= $usuario['id_usr'] ?>">Editar</a>
+                                            <form action="acciones/registro.php" method="POST">
+                                                <input type="hidden" name="borrar_usr" value="<?= $usuario['id_usr'] ?>">
                                                 <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
                                             </form>
                                         </div>
                                     </td>
                                 </tr>
-                            
-                        <h2 class="alert text-center">No hay usuarios registrados</h2>
+                            <?php
+                        }
+
+                            ?>
+                            <h3 class="alert text-center <?= $usuario == '' ? '' : 'd-none' ; ?>">¡No hay usuarios registrados!</h3>
+                        
                 </tbody>
             </table>    
         </div>
