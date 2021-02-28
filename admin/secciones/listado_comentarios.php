@@ -44,7 +44,7 @@
                                         if($resp > 0){
                                         header ('Location: index.php?seccion=listado_comentarios');
                                     }
-                                        echo '<script>alert("'.$resp.'");</script>';
+                                
                                             }
 
                                     ?>

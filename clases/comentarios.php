@@ -20,12 +20,7 @@
 			return $this->con->query($query);
 		}
 
-		public function editComentario($datos){
-
-
-		}
-
-
+		
 		public function saveComentario($datos = array()){
 		
 		$query = "INSERT INTO comentarios(comentario,rankeo,fecha,producto_id,comentarios_id,ip,usuario_id)

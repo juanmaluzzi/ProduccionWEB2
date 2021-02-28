@@ -75,13 +75,10 @@ $query .= '9 desc';
 			$query = "SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = '".$id."' ;";
 			$consulta = $this->con->query($query)->fetch();
 			
-			if ($consulta->cantidad != 0){
+			
 			$sql = "DELETE FROM comentarios WHERE comentarios_id = '" . $id . "';";
 			
 			$this->con->exec($sql);
-			return 1;
-			}
-			
 			return 'Comentario eliminado';
 			
 			}
