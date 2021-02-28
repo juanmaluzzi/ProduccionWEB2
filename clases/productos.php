@@ -59,6 +59,17 @@ $query .= '9 desc';
 
 		}
 
+		public function editarComentario($id){
+		
+				$query = "SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = '" . $id . "' ;";
+				$consulta = $this->con->query($query)->fetch();
+				$sql = "UPDATE comentarios SET habilitado = 1 WHERE comentarios_id = '" . $id . "';";
+				
+				$this->con->exec($sql);
+				return 'Comentario agregado'; 
+
+				}
+
 		public function borrarComentario($id){
 
 			$query = "SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = '".$id."' ;";
@@ -77,7 +88,7 @@ $query .= '9 desc';
 
 		public function getComentarioProductos($filtros = array()){
 
-			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id
+			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id, habilitado
 						FROM productos as p 
 						INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id 
 						INNER JOIN comentarios as co on co.producto_id=p.id_producto
@@ -122,7 +133,7 @@ $query .= '9 desc';
           
 			$sql = "UPDATE productos SET ".implode(',',$columns)." WHERE id_producto = ".$id. ";";
 			return $sql;
-             // $this->con->exec($sql);
+             
 			
 	} 
 	public function get($id){

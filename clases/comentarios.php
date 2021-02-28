@@ -14,12 +14,16 @@
 
 		public function getComentario($datos){
 			$query = "SELECT * FROM 
-			comentarios as c INNER JOIN productos as p on p.id_producto=c.producto_id
-			INNER JOIN usuarios as u on u.id_usr=c.usuario_id
-			WHERE c.producto_id=$datos";
+			comentarios AS c INNER JOIN productos AS p ON p.id_producto=c.producto_id
+			INNER JOIN usuarios AS u ON u.id_usr=c.usuario_id
+			WHERE c.producto_id=$datos AND c.habilitado=1";
 			return $this->con->query($query);
 		}
 
+		public function editComentario($datos){
+
+
+		}
 
 
 		public function saveComentario($datos = array()){

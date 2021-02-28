@@ -221,7 +221,7 @@
           <!--CAJA COMENTARIOS -->
       <div class="site-section bg-light">
       <div class="container">
-        <div class="owl-carousel owl-slide-3 ">
+        <div class="owl-carousel owl-slide-3 text-center">
         <?php 
 
         if (!empty ($mensaje)){
