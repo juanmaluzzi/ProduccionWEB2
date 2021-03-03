@@ -10,6 +10,32 @@
 
 		}
 
+		public function editarProd($id,$nuevoNombre){
+			$query = "UPDATE categoria SET habilitado = 1, categoria = '".$nuevoNombre."'
+			WHERE id = ".$id." ; " ;
+		}
+
+		public function crearProducto($nombreProducto, $desc, $catID, $cepaID, $bodID, $precio){
+			$query = "INSERT INTO productos(id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting)
+			VALUES ('0','$nombreProducto','$desc','$catID','$cepaID','$bodID','$precio','0','0','0');" ;
+		
+			if ($this->con->exec($query)>0) {
+		
+			return 'ok';
+		
+			}else{
+		
+			return 'error_datos';
+			
+			}
+		}
+
+		public function getUltimoID(){
+			$query = "SELECT max(id_producto) as ultProd
+				FROM productos ; " ;
+				return $this->con->query($query);
+			}
+
 
 		public function getUnProducto($filtro){
 		$query = "SELECT campo_id, id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
@@ -131,7 +157,8 @@ $query .= '9 desc';
 				$consulta = $this->con->query($query)->fetch();
 		if($consulta->cantidad == 0){
 			$sql = 'DELETE FROM productos WHERE id_producto = '.$id. ';'; 
-					
+			unlink("../images/$id/$id.png");
+			rmdir("../images/$id");
 
 			$this->con->exec($sql); 
 			return 1;

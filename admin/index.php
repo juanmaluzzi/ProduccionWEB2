@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -30,12 +31,12 @@ $seccion = $_GET['seccion'];
 
 require_once '../inc/mysql_login.php'; 
 require_once '../inc/config.php'; 
-require_once('../clases/productos.php');
 require_once('../clases/marca.php'); 
 require_once('../clases/cepa.php');
 require_once('../clases/categoria.php');
 require_once('../clases/usuario.php');
-    
+require_once('../clases/productos.php');
+
 $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
@@ -93,13 +94,8 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
   
   ?>
-
         <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=listado_comentarios">Comentarios</a>
-
-        <li class="nav-item <?= $seccion == "listado_comentarios" ? "active" : ""; ?>">
-        <a class="nav-link" href="index.php?seccion=listado_comentarios">Listado de comentarios</a>
-
       </li>
 
  
@@ -202,4 +198,4 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
   <script src="../js/main.js"></script>
 
   </body>
-</html>
+  </html>

@@ -1,6 +1,4 @@
-
-
-  <!-- CEPA  -->
+ <!-- CEPA  -->
     <?php
       require_once('clases/cepa.php'); 
       if(!empty($_GET['cepa'])){
