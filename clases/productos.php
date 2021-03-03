@@ -34,9 +34,10 @@
 			$query .= 'WHERE cepa_id = '.$filtros['cepa'];
 		}elseif(!empty($filtros['marca'])){
 			$query .= 'WHERE marcas_id = '.$filtros['marca'];
-		
-	}
-		
+		}
+		elseif(!empty($filtros['categoria'])){
+		$query .= 'WHERE cat.id = '.$filtros['categoria'];
+		}
 		// $ordenamiento = ['AZ','ZA','DESTACADO'];
 	if (!empty($filtros['order'])){
 		$query .= ' ORDER BY ';
