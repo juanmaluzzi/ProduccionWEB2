@@ -30,12 +30,12 @@ $seccion = $_GET['seccion'];
 
 require_once '../inc/mysql_login.php'; 
 require_once '../inc/config.php'; 
-require_once('../clases/productos.php');
 require_once('../clases/marca.php'); 
 require_once('../clases/cepa.php');
 require_once('../clases/categoria.php');
 require_once('../clases/usuario.php');
-    
+require_once('../clases/productos.php');
+
 $Productos = new Productos($con);
 $Marca = new Marca($con);
 $Cepa = new Cepa($con);
