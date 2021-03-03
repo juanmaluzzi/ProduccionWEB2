@@ -35,7 +35,7 @@
 			}
 			public function editarCategoria($id,$name){
 		
-				$query = "UPDATE categoria SET habilitado = 1 , categoria = '" . $name . "'
+				$query = "UPDATE categoria SET categoria = '" . $name . "'
 				WHERE id = '" .$id. "';";
 				
 				$this->con->exec($query);

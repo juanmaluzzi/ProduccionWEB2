@@ -7,7 +7,7 @@ $Marca = new Marca($con);
 
 if(isset($_GET['edit'])){
     if((!empty($_GET['edit']))){
-        $Marca = $Marca->getMarca($_GET['edit']);
+        $marca = $Marca->getMarca($_GET['edit']);
         $titulo = 'Editar Marca';
     }
     else {

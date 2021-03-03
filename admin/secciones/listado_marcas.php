@@ -19,8 +19,8 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ID Categoria</th>
-                        <th>Nombre Categoria</th>
+                        <th>ID Bodega</th>
+                        <th>Nombre Bodega</th>
                       
                     </tr>
                 </thead>
@@ -50,7 +50,7 @@
 
                                     ?>
                                      <button type="button" class="btn  btn-sm"><a
-                                href="index.php?seccion=listado_marcas">Borrar</a></button>
+                                href="index.php?seccion=listado_marcas&del=<?php echo $marca['id']?>">Borrar</a></button>
                                 </td>
 
                                 <td>

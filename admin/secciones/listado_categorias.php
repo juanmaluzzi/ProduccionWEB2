@@ -50,7 +50,7 @@
 
                                     ?>
                                      <button type="button" class="btn  btn-sm"><a
-                                href="index.php?seccion=listado_categorias">Borrar</a></button>
+                                href="index.php?seccion=listado_categorias&del=<?php echo $categorias['id']?>">Borrar</a></button>
                                 </td>
 
                                 <td>

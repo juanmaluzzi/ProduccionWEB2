@@ -8,6 +8,21 @@
 			$this->con = $con;
 		}
 
+
+		public function borrarMarca($id){
+
+			$query = "SELECT count(1) AS cantidad FROM marcas WHERE id = '".$id."' ;";
+			$consulta = $this->con->query($query)->fetch();
+			
+			
+			$sql = "DELETE FROM marcas WHERE id = '" . $id . "';";
+			
+			$this->con->exec($sql);
+			return 'Marca eliminada';
+			
+			}
+
+
 		public function getMarca($filtro = array()){
 			$query = "SELECT * FROM marcas";
 			return $this->con->query($query);
@@ -21,7 +36,7 @@
 
 		public function editarMarca($id,$name){
 		
-			$query = "UPDATE marca, marcas = '" . $name . "'
+			$query = "UPDATE marcas SET marca = '" . $name . "'
 			WHERE id = '" .$id. "';";
 			
 			$this->con->exec($query);

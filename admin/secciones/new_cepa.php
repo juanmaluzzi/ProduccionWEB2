@@ -8,7 +8,7 @@ $Cepa = new Cepa($con);
 
 if(isset($_GET['edit'])){
     if((!empty($_GET['edit']))){
-        $Cepa = $Cepa->getCepa($_GET['edit']);
+        $cepa = $Cepa->getCepa($_GET['edit']);
         $titulo = 'Editar Cepa';
     }
     else {
@@ -42,9 +42,11 @@ else{
             <div class="col-12 col-md-6">
                 <div class="card bg-light text-dark">
                     <div class="card-body">
+
                         <form action="../admin/acciones/editar_cepa.php" method="post">
+
                        <h1 class="text-danger"><?=$titulo;?> </h1>
-                                    <input type="hidden" name="id" value="<?= $_GET['edit'] ?>">
+                                    <input type="hidden" name="id_cepa" value="<?= $_GET['edit'] ?>">
         
                             <div class="form-group">
                               

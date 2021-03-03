@@ -10,11 +10,11 @@ print_r($_POST);
 
 //VALIDA CAMPO OBLIGATORIOS
 if(empty($_POST["edit"])):
-    header("Location:../index.php?seccion=listado_categorias&estado=error&error=campos_obligatorios");
+    header("Location:../index.php?seccion=listado_cepas&estado=error&error=campos_obligatorios");
     die();
 endif;
 
-header("Location:../index.php?seccion=listado_categorias");
+header("Location:../index.php?seccion=listado_cepas");
  die();
 
 

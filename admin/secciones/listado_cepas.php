@@ -51,7 +51,7 @@
 
                                     ?>
                                      <button type="button" class="btn  btn-sm"><a
-                                href="index.php?seccion=listado_cepas">Borrar</a></button>
+                                href="index.php?seccion=listado_cepas&del=<?php echo $cepa['id_cepa']?>">Borrar</a></button>
                                 </td>
 
                                 <td>

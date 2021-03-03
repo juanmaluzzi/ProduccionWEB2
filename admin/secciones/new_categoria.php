@@ -19,7 +19,7 @@ if(isset($_POST['formulario_categorias'])){
 */
 if(isset($_GET['edit'])){
     if((!empty($_GET['edit']))){
-        $Categorias = $Categorias->getCategoria($_GET['edit']);
+        $categorias = $Categorias->getCategoria($_GET['edit']);
         $titulo = 'Editar Categoria';
     }
     else {

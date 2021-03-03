@@ -34,7 +34,7 @@
 
 			public function editarCepa($id,$name){
 		
-				$query = "UPDATE cepa, cepa = '" . $name . "'
+				$query = "UPDATE cepa SET cepa = '" . $name . "'
 				WHERE id_cepa = '" .$id. "';";
 				
 				$this->con->exec($query);
