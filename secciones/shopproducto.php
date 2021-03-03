@@ -145,8 +145,8 @@
           ?>
           <div class="row-fluid">
                   <div class="form-group pl-2 text-dark" style="font-size: 14px">
-                      <label for="comentario">Contanos que notas sentiste en este vino</label>
-                      <textarea name="comentario" id="comentario" cols="80" rows="5" class="form-control" required></textarea>
+                      <label for="notas">Contanos que notas sentiste en este vino</label>
+                      <textarea name="notas" id="notas" cols="80" rows="5" class="form-control" required></textarea>
                   </div>
               </div>
            <?php  }
@@ -160,10 +160,10 @@
                  <div class="form group pl-4 text-dark">
                  <label for="product">¿Te gustaria que este vino este en version lata?</label>
                  <br>
-                  <select class="form-group form-control-lg text-dark border-dark" name="rankeo" class="form-control-lg">
+                  <select class="form-group form-control-lg text-dark border-dark" name="enlata" class="form-control-lg">
                       <option value="0">-----</option>
                       <option value="1">Si</option>
-                      <option value="1">No</option>                    
+                      <option value="2">No</option>                    
                   </select>
                  </div>    
            </div>         
@@ -226,9 +226,17 @@
              <br>   
           <?php echo $comentario['fecha'] ?></p>
           </p>
-            
+
           <p class="small text-primary">
+
+          <!-- CAMPO DINAMICO 1 -->
+          <?php 
+          foreach($Productos->campoDinamicoUno($id) as $campo){        
+            if ($campo['id_campo']== 1)     { 
+			  ?>
+  
           <?php
+          
           switch ($comentario['rankeo']) {
                      case "0":
                                echo '<span class="icon-star-o"></span>
@@ -278,16 +286,61 @@
                               <span class="icon-star"></span>
                               <span class="icon-star"></span>'
                               ;
-                           break;
-} ?></p>
-            <p>&ldquo;<?php echo $comentario['comentario'] ?>&rdquo;</p>
-            
-          </blockquote>
-          <?php 
+                             break;
+                                          }
+                                             }
+       } ?>
+       <!-- FIN CAMPO DINAMICO 1 -->
+       <br>
+       Comentario
+       <p>&ldquo;<?php echo $comentario['comentario'] ?>&rdquo;</p>
+
+       <!-- CAMPO DINAMICO 2  -->
+      <?php                 
+        foreach($Productos->campoDinamicoDos($id) as $campo){ 
+            if ($campo['id_campo']== 2)     { 
+			   ?> 
+         Notas
+         <p>&ldquo;<?php echo $comentario['notas'] ?>&rdquo;</p>
+               
+      
+      <?php 
               }  
-              
+            }
           ?>
+        <!-- FIN CAMPO DINAMICO 2 -->
+        <!-- CAMPO DINAMICO 3 -->
+        <?php                 
+        foreach($Productos->campoDinamicoTres($id) as $campo){ 
+            if ($campo['id_campo']== 3)     { 
+			   ?>    
+         ¿Lo querrias en lata?
+         <br>
+         <?php       
+          switch ($comentario['enlata']) {
+                              case "0":
+                              echo '----'
+                              ;
+                              break;
+                              case "1":
+                              echo 'Si'
+                              ;
+
+                              break;
+                              case "2":
+                              echo 'No'
+                              ;
+                             break;
+                            }  
+                          }
+                        }   ?>
+        <!-- FIN CAMPO DINAMICO 3 -->
+        </p> 
+          </blockquote>
           
+          <?php                
+            }
+             ?>
         </div>
         
          

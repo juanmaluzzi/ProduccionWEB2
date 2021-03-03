@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="container-sm pt-3 mb-12">
     
     <div class="col-12">
         <h2 class="text-center">
@@ -6,7 +6,7 @@
         </h2>
     </div>
 
-<div class="card mb-5">
+<div class="card mb-12">
         <div class="col-12">
             
             <table class="table">
@@ -16,6 +16,8 @@
                         <th>Nombre de producto</th>    
                         <th>id producto</th>                                   
                         <th>Comentario</th>
+                        <th>Notas</th>
+                        <th>Lata</th>
                         <th>Email</th>
                         <th>Usuario</th>
                         <th>Comentarios_id</th>
@@ -33,6 +35,8 @@
                                 <td><?php echo $productos['nombre']?></td>
                                 <td><?php echo $productos['id_producto']?></td>
                                 <td><?php echo $productos['comentario'] ?></td>
+                                <td><?php echo $productos['notas'] ?></td>
+                                <td><?php echo $productos['enlata'] ?></td>
                                 <td ><?php echo $productos['email'] ?></td>
                                 <td class="text-center"><?php echo $productos['usr'] ?></td>
                                 <td class="text-center"><?php echo $productos['comentarios_id'] ?></td>
@@ -86,9 +90,10 @@
 
             <div>
              <div class="col-12">
-        <h2 class="text-center">
+        <h2 class="text-center pt-4">
             Habilitar/Deshabilitar campos
         </h2>
              </div>
              </div>
+             
 </div>

@@ -62,6 +62,7 @@ $query .= '9 desc';
 			
 			return $this->con->query($query);
 		}  
+
 			public function campoDinamicoDos($id){
 			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
 			INNER JOIN productos as p on c.campo_id = p.id_campo
@@ -107,7 +108,7 @@ $query .= '9 desc';
 
 		public function getComentarioProductos($filtros = array()){
 
-			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id, habilitado
+			$query = "SELECT id_producto, rankeo, enlata, nombre, notas, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id, habilitado
 						FROM productos as p 
 						INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id 
 						INNER JOIN comentarios as co on co.producto_id=p.id_producto
