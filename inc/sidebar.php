@@ -1,4 +1,4 @@
-  <!-- CEPA  -->
+ <!-- CEPA  -->
     <?php
       require_once('clases/cepa.php'); 
       if(!empty($_GET['cepa'])){
@@ -84,12 +84,10 @@ require_once('mysql_login.php');
 
 $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
 
-$query = "SELECT * FROM categoria WHERE parent_id = 0";
+$query = "SELECT * FROM categoria WHERE parent_id = 0 ;";
 $categorias = $con->query($query);
 ?>
 <ul> <!--- ME QUEDA MODIFICAR Los HREF PARA UQE ME QUEDE BIEN -->
-
-
 
     <?php foreach($categorias as $cat){?>
         <li>
@@ -97,7 +95,7 @@ $categorias = $con->query($query);
                 <?php echo $cat['categoria']?>
             </a>
             <?php 
-            $query = " SELECT * FROM categoria WHERE parent_id= ".$cat['id']; 
+            $query = "SELECT * FROM categoria WHERE parent_id = '" . $cat['id'] . "' ;"; 
             $subcategorias = $con->query($query); ?>
                 <ul>
                     <?php foreach($subcategorias as $scat){?>
@@ -112,5 +110,6 @@ $categorias = $con->query($query);
         </li>
     <?php } ?>
 </ul>
+
 
   </div>
