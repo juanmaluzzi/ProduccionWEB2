@@ -45,6 +45,8 @@ if (isset($_SESSION['user_id'])){
   }
 
 } 
+
+ 
 ?>
 <!-- INICIAR SESION/ REGISTRO / LOGOUT BOTONESSSSS -->
 <?php  
@@ -67,15 +69,6 @@ if (isset($_SESSION['user_id'])){
       </button>
           <?php 
       endif;?>
-  
- <!-- <button class="btn mt-3 float-right mr-3 " type="button">
-<a href="index.php?seccion=usuarios">Registrarse</a>
-</button>
-<button class="btn mt-3 float-right mr-3 " type="button">
-<a href="index.php?seccion=login">Iniciar sesión</a>
-</button>
-
--->
 
   <div class="container">
          

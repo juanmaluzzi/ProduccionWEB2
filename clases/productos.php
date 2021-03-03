@@ -12,9 +12,10 @@
 
 
 		public function getUnProducto($filtro){
-		$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
+		$query = "SELECT campo_id, id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, c.cepa as nombreCepa
 			FROM productos as p INNER JOIN marcas as m on p.marcas_id = m.id
 			INNER JOIN cepa as c on p.cepa_id = c.id_cepa
+			INNER JOIN campos_dinamicos as cd on p.id_campo = cd.campo_id
 			WHERE id_producto = $filtro";
 			return $this->con->query($query);
 		}
@@ -26,7 +27,6 @@
 					INNER JOIN cepa as c on p.cepa_id = c.id_cepa
 					INNER JOIN marcas as m on p.marcas_id = m.id 
 					INNER JOIN categoria as cat on p.categoria_id = cat.id ";
-		//$where = array();
 
 		if(!empty($filtros['cepa']) && !empty($filtros['marca'])){
 			$query .= 'WHERE cepa_id = '.$filtros['cepa'].' AND marcas_id = '.$filtros['marca'];
@@ -39,8 +39,6 @@
 		$query .= 'WHERE cat.id = '.$filtros['categoria'];
 		}
 		// $ordenamiento = ['AZ','ZA','DESTACADO'];
-
-
 	if (!empty($filtros['order'])){
 		$query .= ' ORDER BY ';
  		if($filtros['order'] == 1){
@@ -52,33 +50,66 @@ else{
 $query .= '9 desc';
 }
 }
-	
-
-
 		return $this->con->query($query);
 
 
 		}
+
+
+			public function campoDinamicoUno($id){
+			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
+			INNER JOIN productos as p on c.campo_id = p.id_campo
+			WHERE p.id_campo = 1 && p.id_producto = '" .$id."';";
+			
+			return $this->con->query($query);
+		}  
+
+			public function campoDinamicoDos($id){
+			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
+			INNER JOIN productos as p on c.campo_id = p.id_campo
+			WHERE p.id_campo = 2 && p.id_producto = '" .$id."';";
+			
+			return $this->con->query($query);
+		}
+
+			public function campoDinamicoTres($id){
+			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
+			INNER JOIN productos as p on c.campo_id = p.id_campo
+			WHERE p.id_campo = 3 && p.id_producto = '" .$id."';";
+			
+			return $this->con->query($query);
+		}
+
+		
+
+
+		public function editarComentario($id){
+		
+				$query = "SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = '" . $id . "' ;";
+				$consulta = $this->con->query($query)->fetch();
+				$sql = "UPDATE comentarios SET habilitado = 1 WHERE comentarios_id = '" . $id . "';";
+				
+				$this->con->exec($sql);
+				return 'Comentario agregado'; 
+
+				}
 
 		public function borrarComentario($id){
 
 			$query = "SELECT count(1) AS cantidad FROM comentarios WHERE comentarios_id = '".$id."' ;";
 			$consulta = $this->con->query($query)->fetch();
 			
-			if ($consulta->cantidad == 0){
+			
 			$sql = "DELETE FROM comentarios WHERE comentarios_id = '" . $id . "';";
 			
 			$this->con->exec($sql);
-			return 1;
-			}
-			
 			return 'Comentario eliminado';
 			
 			}
 
 		public function getComentarioProductos($filtros = array()){
 
-			$query = "SELECT id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id
+			$query = "SELECT id_producto, rankeo, enlata, nombre, notas, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting, m.marca as nombreMarca, co.comentario, u.email, u.usr,co.comentarios_id, habilitado
 						FROM productos as p 
 						INNER JOIN marcas as m on p.marcas_id = m.id INNER JOIN categoria as c on p.categoria_id = c.id 
 						INNER JOIN comentarios as co on co.producto_id=p.id_producto
@@ -123,7 +154,7 @@ $query .= '9 desc';
           
 			$sql = "UPDATE productos SET ".implode(',',$columns)." WHERE id_producto = ".$id. ";";
 			return $sql;
-             // $this->con->exec($sql);
+             
 			
 	} 
 	public function get($id){
@@ -131,10 +162,9 @@ $query .= '9 desc';
 		           FROM productos WHERE id_producto = ".$id;
         $query = $this->con->query($query); 
 			
-		$productos = $query->fetch(PDO::FETCH_OBJ);
-			
-			
+		$productos = $query->fetch(PDO::FETCH_OBJ);		
 	}
+
 	public function save($data)
 	{
 		foreach ($data as $key => $value) {

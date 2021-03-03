@@ -29,7 +29,7 @@ if(isset($_GET['edit'])){
 else{
     $titulo = 'Nuevo Producto';
 }
-print( $Productos->edit($_POST));
+
 
 
 ?>

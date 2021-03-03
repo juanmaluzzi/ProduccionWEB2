@@ -67,30 +67,44 @@ $i = 0;
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
     ?>
         <li class="nav-item <?= $seccion == "listado_prod" ? "active" : ""; ?>">
-        <a class="nav-link" href="index.php?seccion=listado_prod">Listado de productos</a>
+        <a class="nav-link" href="index.php?seccion=listado_prod">Productos</a>
       </li> 
         <li class="nav-item <?= $seccion == "nuevo_prod" ? "active" : ""; ?>">
-        <a class="nav-link" href="index.php?seccion=nuevo_prod">Cargar nuevo producto</a>
+        <a class="nav-link" href="index.php?seccion=nuevo_prod">Nuevo producto</a>
+      </li>
+      <li class="nav-item <?= $seccion == "listado_cepas" ? "active" : ""; ?>">
+        <a class="nav-link" href="index.php?seccion=listado_cepas">Cepas</a>
+      </li>
+      <li class="nav-item <?= $seccion == "listado_marcas" ? "active" : ""; ?>">
+        <a class="nav-link" href="index.php?seccion=listado_marcas">Bodegas</a>
+      </li>
+      <li class="nav-item <?= $seccion == "listado_categorias" ? "active" : ""; ?>">
+        <a class="nav-link" href="index.php?seccion=listado_categorias">Categorias</a>
       </li>
       <?php
 }
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
 ?>
       <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
-        <a class="nav-link" href="index.php?seccion=abmusuarios">Listado de usuarios</a>
+        <a class="nav-link" href="index.php?seccion=abmusuarios">Usuarios</a>
       </li>
 
 <?php }
 if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
   
   ?>
+
+        <li class="nav-item <?= $seccion == "abmusuarios" ? "active" : ""; ?>">
+        <a class="nav-link" href="index.php?seccion=listado_comentarios">Comentarios</a>
+
         <li class="nav-item <?= $seccion == "listado_comentarios" ? "active" : ""; ?>">
         <a class="nav-link" href="index.php?seccion=listado_comentarios">Listado de comentarios</a>
+
       </li>
 
  
        <li class="nav-item">
-          <a href="index.php" class="nav-link">Volver</a>
+          <a href="index.php" class="nav-link">Salir</a>
       </li>
 
 <?php
@@ -119,7 +133,16 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
     }
     elseif($_GET["seccion"]=="crearusr" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMUSR')){
       require_once("secciones/crear_usuario.php");
-    }       
+    }
+    elseif($_GET["seccion"]=="listado_categorias" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/listado_categorias.php");
+    }  
+    elseif($_GET["seccion"]=="listado_cepas" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/listado_cepas.php");
+    }
+    elseif($_GET["seccion"]=="listado_marcas" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/listado_marcas.php");
+    }     
     elseif($_GET["seccion"]=="listado_comentarios" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
       require_once("secciones/listado_comentarios.php");
     }
