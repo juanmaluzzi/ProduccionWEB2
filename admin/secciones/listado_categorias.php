@@ -7,7 +7,7 @@
     <button class="btn btn-outline-secondary" type="button"><a
                                 href="index.php?seccion=listado_categorias">Categorias</a></button>
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=new_categoria">Nueva Categoria</a></button>
+                                href="index.php?seccion=nuevo_prod&new=cat">Nueva Categoria</a></button>
   </div>
   <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>

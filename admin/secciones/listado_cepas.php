@@ -7,7 +7,7 @@
     <button class="btn btn-outline-secondary" type="button"><a
                                 href="index.php?seccion=listado_cepas">Cepas</a></button>
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=new_cepa">Nueva Cepa</a></button> <?php #FRANKIE ?>
+                                href="index.php?seccion=nuevo_prod&new=cepa">Nueva Cepa</a></button> <?php #FRANKIE ?>
   </div>
   <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>

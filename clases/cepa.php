@@ -32,11 +32,11 @@
 				
 				}
 		}
-	}
+	
 
 
 
-		public function borrarCepa($id){
+			public function borrarCepa($id){
 
 			$query = "SELECT count(1) AS cantidad FROM cepa WHERE id_cepa = '".$id."' ;";
 			$consulta = $this->con->query($query)->fetch();
@@ -79,6 +79,6 @@
 
 	}
 }
-	
+
 
 ?>
