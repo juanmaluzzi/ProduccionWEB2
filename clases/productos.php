@@ -136,7 +136,8 @@ $query .= '9 desc';
 				$consulta = $this->con->query($query)->fetch();
 		if($consulta->cantidad == 0){
 			$sql = 'DELETE FROM productos WHERE id_producto = '.$id. ';'; 
-					
+			unlink("../images/$id/$id.png");
+			rmdir("../images/$id");
 
 			$this->con->exec($sql); 
 			return 1;

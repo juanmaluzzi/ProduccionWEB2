@@ -9,10 +9,25 @@
 		$this->con = $con;
 
 		}
+
+		public function nuevaCategoria($nombreCat){
+			$query = "INSERT INTO categoria (id, categoria, parent_id) VALUES ('0', '$nombreCat', '0');" ;
+			if ($this->con->exec($query)>0) {
+		
+				return 'ok';
+			
+				}else{
+			
+				return 'error_datos';
+				
+				}
+		}
+
 		public function getCategoria($filtro = array()){
 
 		$query = "SELECT * FROM categoria";
 		return $this->con->query($query);
+		
 		}	
 
 		public function getNombreCate($id){
