@@ -10,14 +10,10 @@
 
 		}
 
-		public function editarProd($id,$nuevoNombre){
-			$query = "UPDATE categoria SET habilitado = 1, categoria = '".$nuevoNombre."'
-			WHERE id = ".$id." ; " ;
-		}
 
 		public function crearProducto($nombreProducto, $desc, $catID, $cepaID, $bodID, $precio){
-			$query = "INSERT INTO productos(id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting)
-			VALUES ('0','$nombreProducto','$desc','$catID','$cepaID','$bodID','$precio','0','0','0');" ;
+			$query = "INSERT INTO productos(id_producto, nombre, descripcion, categoria_id, cepa_id, marcas_id, precio, activo, destacado, raiting,id_campo)
+			VALUES ('0','$nombreProducto','$desc','$catID','$cepaID','$bodID','$precio','0','0','0','1');" ;
 		
 			if ($this->con->exec($query)>0) {
 		

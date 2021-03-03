@@ -47,7 +47,7 @@ require_once('../inc/mysql_login.php');
                                    if($productos['id_producto'] != null){
                     ?>
                                 <tr>
-                                    <td><img src="../images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image" class="img-fluid" width=50px></td>
+                                    <td><img src="../images/<?=  $productos['id_producto']?>/<?= $productos['id_producto']?>.png" alt="Image" class="img-fluid" width=50px></td>
                                     <td><?php echo $productos['nombre']?></td>
                                     <td>$<?php echo $productos['precio']?></td>
                                     <td><?php echo $productos['nombreMarca']?></td>
