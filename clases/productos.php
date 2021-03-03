@@ -56,9 +56,9 @@ $query .= '9 desc';
 
 
 			public function campoDinamicoUno($id){
-			$query = "SELECT c.campo_id from campos_dinamicos as c 
+			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
 			INNER JOIN productos as p on c.campo_id = p.id_campo
-			WHERE c.campo_id = 1";
+			WHERE p.id_campo = 1 && p.id_producto = '" .$id."';";
 			
 			return $this->con->query($query);
 		}  
@@ -145,10 +145,9 @@ $query .= '9 desc';
 		           FROM productos WHERE id_producto = ".$id;
         $query = $this->con->query($query); 
 			
-		$productos = $query->fetch(PDO::FETCH_OBJ);
-			
-			
+		$productos = $query->fetch(PDO::FETCH_OBJ);		
 	}
+
 	public function save($data)
 	{
 		foreach ($data as $key => $value) {

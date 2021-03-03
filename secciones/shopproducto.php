@@ -145,8 +145,8 @@
 
               <?php  
 
-              if($Productos->campoDinamicoUno($id)){
-              
+            foreach($Productos->campoDinamicoUno($id) as $puntuacion){
+             if($puntuacion ['id_campo'] == 1){
           ?>
             <div class="row">
                  <div class="form group pl-4 text-dark">
@@ -168,7 +168,8 @@
                   
               </div>
               <!-- cierre de la puntuacion -->
-              <?php  }  ?>
+              <?php  }
+            }?>
   
              <br>
              
