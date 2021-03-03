@@ -48,10 +48,13 @@ else{
                         <form action="index.php?seccion=listado_prod" method="post">
                        <h1 class="text-danger"> <?=$titulo;?> </h1>
                                     <input type="hidden" name="id" value="<?= $titulo; ?>">
-
+<?php
+                                    
+                                    foreach($Productos->getUnProducto($_GET['edit']) as $productos){
+    ?>
                             <div class="form-group">
                               <label for="nombre">Nombre producto</label>
-                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese nombre del producto a cargar" >
+                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese nombre del producto a cargar" value="<?=isset($productos['nombre'])?$productos['nombre']:'';?>">
                             </div>
 
                             <div class="form-group">
@@ -78,10 +81,10 @@ else{
 
                             <div class="form-group">
                             <label for="categoria">Categoria</label>
-                                <textarea class="form-control" name="categoria" id="categoria" rows="1" placeholder="Ejemplo: Blanco, Rosado, Tinto"></textarea>
+                                <textarea class="form-control" name="categoria" id="categoria" rows="1" placeholder="Ejemplo: Blanco, Rosado, Tinto"><?php echo isset($productos['categoria_id'])?$productos['categoria_id']:'';?></textarea>
                             <label for="bodega">Bodega</label>
                                  <textarea class="form-control" name="bodega" id="bodega" rows="1">
-                                 <?php echo isset($productos['marca_id'])?$productos['marca_id']:'';?></textarea>
+                                 <?php echo isset($productos['marcas_id'])?$productos['marcas_id']:'';?></textarea>
                             <label for="cepa">Cepa</label>
                                  <textarea class="form-control" name="cepa" id="cepa" rows="1">
                                  <?php echo isset($productos['cepa_id'])?$productos['cepa_id']:'';?></textarea>
@@ -100,7 +103,7 @@ else{
 
 
                         </form>
-                       
+                        <?php }?>
                     </div>
                 </div>
             </div>

@@ -18,11 +18,11 @@ $password = $_POST["password"];
         
 foreach($Usuario->getUsr($usr) as $datosUsr){
     
-    if(password_verify($password,$datosUsr['password'])){
+    if(password_verify($password,$datosUsr['pass'])){
         $_SESSION['usuario'] = [
-            'nombre' => $datosUsr['usuario'],
+            'nombre' => $datosUsr['usr'],
             'email' => $datosUsr['email'],
-            'perfil' => $datosUsr['user_perfil']
+            'perfil' => $datosUsr['usr_perfil']
         ];    
         $login = 'true';  
         $_SESSION["estado"] = "logueado";

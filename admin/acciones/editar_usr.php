@@ -5,17 +5,7 @@ require_once('../../clases/usuario.php');
 
 $Usuario = new Usuario($con); 
 
-$email = $_POST["email"];
-$perfil = $_POST["perfil"];
-$usuario = $_POST["usuario"];
-$password = $_POST["password"];
+$mensaje = $Usuario->editarUsr($_POST["id_usr"],$_POST["usuario"],$_POST["password"],$_POST["perfil"],$_POST["email"]);
 
-if(!isset($perfil)):
-    $perfil = 3;
-    endif;
-
-$mensaje = $Usuario->addUsr($usuario,$password,$perfil,$email);
-  print($mensaje);
-
-  header("Location:../index.php?seccion=abmusuarios");
+header("Location:../index.php?seccion=abmusuarios");
 die();

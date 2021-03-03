@@ -1,7 +1,5 @@
 <?php
     
-    
-
     $message = '';
 
 if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['usuario']) ){

@@ -1,3 +1,5 @@
+
+
   <!-- CEPA  -->
     <?php
       require_once('clases/cepa.php'); 
@@ -53,37 +55,9 @@
      </div>
     </div>
   </div>
- <!-- CATEGORIAA -->
-<!--    <?php
-  require_once('clases/categoria.php'); 
-    if(!empty($_GET['categoria'])){
-      foreach($Categoria->getNombreCate($_GET['categoria']) as $cateNom){
-        $nombreFiltroCate = $cateNom['categoria'];
-      }
-    }else{
-        $nombreFiltroCate = 'Categorías';
-      }
-  ?>
-  <div class="col-2">
-    <div class="dropdown">
-     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <?php echo $nombreFiltroCate; ?>
-     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      
-      <?php foreach($Categoria->getCategoria() as $categoria){ ?>
 
-        <a class="dropdown-item" href="index.php?seccion=shop&categoria=<?php echo $categoria['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>"><?php echo $categoria['categoria'] ?></a>
-      
-      <?php }?>
-     </div>
-    </div>
-  </div>-->
-   
-
-    <!-- ORDERS -->
-  
-  <div class="col-2">
+  <!-- ORDER -->
+   <div class="col-2">
     <div class="dropdown">
    
      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,10 +73,45 @@
     </div>
   </div>
 
-
-
-  <div class="col-2">
+  <div class="col-3">
     <button class="btn" type="button">
       <a href="index.php?seccion=shop">Restablecer Busqueda</a>
     </button>
+  </div>
+<!-- CATEGORIAS Y SUBCATEGORIAS -->
+  <div class="col-12 py-2">
+  
+<?php
+require_once('mysql_login.php');
+
+$con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $username, $password);
+
+$query = "SELECT * FROM categoria WHERE parent_id = 0 ;";
+$categorias = $con->query($query);
+?>
+<ul> <!--- ME QUEDA MODIFICAR Los HREF PARA UQE ME QUEDE BIEN -->
+
+    <?php foreach($categorias as $cat){?>
+        <li>
+            <a href="index.php?seccion=shop&categoria=<?php echo $cat['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>">
+                <?php echo $cat['categoria']?>
+            </a>
+            <?php 
+            $query = "SELECT * FROM categoria WHERE parent_id = '" . $cat['id'] . "' ;"; 
+            $subcategorias = $con->query($query); ?>
+                <ul>
+                    <?php foreach($subcategorias as $scat){?>
+                        <li>
+                            <a href="index.php?seccion=shop&categoria=<?php echo $scat['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>" >
+                                <?php echo $scat['categoria']?>
+                            </a>
+                            
+                        </li>
+                    <?php } ?>
+                </ul> 
+        </li>
+    <?php } ?>
+</ul>
+
+
   </div>
