@@ -62,6 +62,21 @@ $query .= '9 desc';
 			
 			return $this->con->query($query);
 		}  
+			public function campoDinamicoDos($id){
+			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
+			INNER JOIN productos as p on c.campo_id = p.id_campo
+			WHERE p.id_campo = 2 && p.id_producto = '" .$id."';";
+			
+			return $this->con->query($query);
+		}
+
+			public function campoDinamicoTres($id){
+			$query = "SELECT c.campo_id, p.id_campo from campos_dinamicos as c 
+			INNER JOIN productos as p on c.campo_id = p.id_campo
+			WHERE p.id_campo = 3 && p.id_producto = '" .$id."';";
+			
+			return $this->con->query($query);
+		}
 
 		
 
