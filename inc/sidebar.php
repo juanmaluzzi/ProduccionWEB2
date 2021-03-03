@@ -1,4 +1,4 @@
-  <!-- CEPA  -->
+  <!-- CEPA -->
     <?php
       require_once('clases/cepa.php'); 
       if(!empty($_GET['cepa'])){
@@ -59,7 +59,6 @@
     <div class="dropdown">
    
      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     
       Orden
      </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -87,7 +86,7 @@ $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$puerto, $u
 $query = "SELECT * FROM categoria WHERE parent_id = 0";
 $categorias = $con->query($query);
 ?>
-<ul> <!--- ME QUEDA MODIFICAR Los HREF PARA UQE ME QUEDE BIEN -->
+<ul> <!--- ME QUEDA MODIFICAR Los HREF PARA QUE ME QUEDE BIEN -->
 
 
 

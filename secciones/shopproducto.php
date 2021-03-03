@@ -40,6 +40,7 @@
             $id = $_GET['productos'];
             
             foreach($Productos->getUnProducto($id) as $productos){
+              
 
 			?>
 
@@ -48,12 +49,9 @@
             <div class="block-16">
 
               <figure  aling="center" >
-
-
                 <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image placeholder" class="img-fluid" >
-    
-              </figure>
 
+              </figure>
             </div>
           </div>
          
@@ -129,32 +127,15 @@
           <div class="container-fluid">
           
           <?php  
-
-              if (isset($_SESSION['user_id'])){
-
-          //    if (isset($_POST['enviarcoment'])){
-
-                  
-
-?>
+            if (isset($_SESSION['user_id'])){
+          ?>
             <h2 class="secction-tittle ml-5 mt-5 pt-5 font-size: 12px;" style="color: black">¡Dejanos tu comentario!</h2>
             <div class="container pt-2">
             <div class="row pt-5">
             
            
           
-           <form  method="post" class="pl-5">
-              
-             
-           <!--   <div class="row-fluid">
-                  <div class="form-group pl-2" style="font-size: 12px">
-                      <label for="email">Email</label>
-                      <input name="email" type="email" class="form-control form-control-lg" required>
-                  </div>               
-              </div>
-              
-              -->
-              
+           <form  method="post" class="pl-5">                    
               <div class="row-fluid">
                   <div class="form-group pl-2" style="font-size: 12px">
                       <label for="comentario">Mensaje</label>
@@ -162,13 +143,17 @@
                   </div>
               </div>
 
-            
+              <?php  
+
+              if($Productos->campoDinamicoUno($id)){
+              
+          ?>
             <div class="row">
                  <div class="form group pl-4 text-dark">
                  <label for="product">¿Qué puntuación le das?</label>
                  <br>
                   <select class="form-group form-control-lg text-warning border-dark" name="rankeo" class="form-control-lg">
-                     <option value="0">------</option>
+                      <option value="0">-----</option>
                       <option value="1">★</option>
                       <option value="2">★★</option>
                       <option value="3">★★★</option>
@@ -182,7 +167,8 @@
                   
                   
               </div>
-              
+              <!-- cierre de la puntuacion -->
+              <?php  }  ?>
   
              <br>
              
@@ -222,27 +208,16 @@
       <div class="site-section bg-light">
       <div class="container">
         <div class="owl-carousel owl-slide-3 text-center">
-        <?php 
 
+        <?php 
         if (!empty ($mensaje)){
         echo $mensaje;
-         
         }
-
         ?>
         
-        <?php
-        //pruebo $id que este bien
-       // echo $id;?>
-        
         <?php 
-
-      // $id ya esta inicializado arriba con $_GET productos
-         
-
-          foreach($Comentario->getComentario($id) as $comentario){        
-       
-			?>
+          foreach($Comentario->getComentario($id) as $comentario){             
+			  ?>
       
           <blockquote class="testimony">
           <img src="images/<?php echo $productos['id_producto']?>/<?php echo $productos['id_producto']?>.png" alt="Image">

@@ -79,6 +79,16 @@
                         ?>
                         </tbody>
                     </table>    
+
+       
                 </div>
             </div>
+
+            <div>
+             <div class="col-12">
+        <h2 class="text-center">
+            Habilitar/Deshabilitar campos
+        </h2>
+             </div>
+             </div>
 </div>
