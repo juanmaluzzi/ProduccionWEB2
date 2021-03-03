@@ -90,27 +90,27 @@ $categorias = $con->query($query);
 
 
 
-    <?php 
-    foreach($categorias as $cat){?>
-        <li>
-            <a href="index.php?seccion=shop&categoria=<?php echo $cat['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>">
-                <?php echo $cat['categoria']?>
-            </a>
-            <?php 
-            $query = " SELECT * FROM categoria WHERE parent_id= ".$cat['id']; 
-            $subcategorias = $con->query($query); ?>
-                <ul>
-                    <?php foreach($subcategorias as $scat){?>
-                        <li>
-                            <a href="index.php?seccion=shop&categoria=<?php echo $scat['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>" >
-                                <?php echo $scat['categoria']?>
-                            </a>
-                            
-                        </li>
-                    <?php } ?>
-                </ul> 
-        </li>
-    <?php } ?>
+    
+    <?php foreach($categorias as $cat){?>
+      <li>
+          <a href="index.php?seccion=shop&categoria=<?php echo $cat['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>">
+              <?php echo $cat['categoria']?>
+          </a>
+          <?php 
+          $query = " SELECT * FROM categoria WHERE parent_id= ".$cat['id']; 
+          $subcategorias = $con->query($query); ?>
+              <ul>
+                  <?php foreach($subcategorias as $scat){?>
+                      <li>
+                          <a href="index.php?seccion=shop&categoria=<?php echo $scat['id'] ; ?>&cepa=<?php echo isset($_GET['cepa']) ? $_GET['cepa'] :'' ;?>&marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ;?>" >
+                              <?php echo $scat['categoria']?>
+                          </a>
+                          
+                      </li>
+                  <?php } ?>
+              </ul> 
+      </li>
+  <?php } ?>
 </ul>
 
-  </div>
+</div>
