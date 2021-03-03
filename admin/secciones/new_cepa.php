@@ -1,33 +1,22 @@
 <div class="container">
 <?php
 require_once('../inc/mysql_login.php');
-$Categorias = new Categoria($con);
+require_once('../clases/cepa.php');
+require_once('../inc/config.php');
 
+$Cepa = new Cepa($con);
 
-/*
-if(isset($_POST['formulario_categorias'])){ 
-    if($_POST['id'] > 0){
-            $Categorias->editarCategoria($_POST); 
-         
-    }else{
-        
-            $Categorias->saveCategoria($_POST); 
-    }
-    
-    header('Location: index.php?seccion=listado_categorias');
-}
-*/
 if(isset($_GET['edit'])){
     if((!empty($_GET['edit']))){
-        $Categorias = $Categorias->getCategoria($_GET['edit']);
-        $titulo = 'Editar Categoria';
+        $Cepa = $Cepa->getCepa($_GET['edit']);
+        $titulo = 'Editar Cepa';
     }
     else {
-        $titulo = 'Nueva Categoria';
+        $titulo = 'Nueva Cepa';
     }
 }
 else{
-    $titulo = 'Nueva Categoria';
+    $titulo = 'Nueva Cepa';
 }
 
 
@@ -43,9 +32,9 @@ else{
         <div class="input-group mb-3">
   <div class="input-group-prepend">
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=listado_categorias">Categorias</a></button>
+                                href="index.php?seccion=listado_cepas">Cepa</a></button>
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=new_categoria">Nueva Categoria</a></button>
+                                href="index.php?seccion=new_cepa">Nueva Cepa</a></button>
   </div>
   <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>
@@ -53,7 +42,7 @@ else{
             <div class="col-12 col-md-6">
                 <div class="card bg-light text-dark">
                     <div class="card-body">
-                        <form action="../admin/acciones/editar_cate.php" method="post">
+                        <form action="../admin/acciones/editar_cepa.php" method="post">
                        <h1 class="text-danger"><?=$titulo;?> </h1>
                                     <input type="hidden" name="id" value="<?= $_GET['edit'] ?>">
         
@@ -62,9 +51,9 @@ else{
                               <label for="nombre">Nombre Actual: 
                                 <?php
                                     if((!empty($_GET['edit']))){
-                                    foreach($Categoria->getNombreCate($_GET['edit']) as $categorias){
+                                    foreach($Cepa->getNombreCepa($_GET['edit']) as $cepa){
                                         ?>
-                              <?php echo isset($categorias['categoria'])?$categorias['categoria']:'';?>
+                              <?php echo isset($cepa['cepa'])?$cepa['cepa']:'';?>
 
                               <?php 
                                     
@@ -72,11 +61,11 @@ else{
                    } ?>
                               </label>
                     
-                              <input type="text" class="form-control" name="categoria" id="categoria">
+                              <input type="text" class="form-control" name="cepa" id="cepa">
                              
                             </div>
                        
-                            <button type="submit" class="btn btn-primary" name="formulario_categorias">
+                            <button type="submit" class="btn btn-primary" name="formulario_cepas">
                             Cargar</button>
                       
                         </form>

@@ -1,33 +1,21 @@
 <div class="container">
 <?php
 require_once('../inc/mysql_login.php');
-$Categorias = new Categoria($con);
+
+$Marca = new Marca($con);
 
 
-/*
-if(isset($_POST['formulario_categorias'])){ 
-    if($_POST['id'] > 0){
-            $Categorias->editarCategoria($_POST); 
-         
-    }else{
-        
-            $Categorias->saveCategoria($_POST); 
-    }
-    
-    header('Location: index.php?seccion=listado_categorias');
-}
-*/
 if(isset($_GET['edit'])){
     if((!empty($_GET['edit']))){
-        $Categorias = $Categorias->getCategoria($_GET['edit']);
-        $titulo = 'Editar Categoria';
+        $Marca = $Marca->getMarca($_GET['edit']);
+        $titulo = 'Editar Marca';
     }
     else {
-        $titulo = 'Nueva Categoria';
+        $titulo = 'Nueva Marcaa';
     }
 }
 else{
-    $titulo = 'Nueva Categoria';
+    $titulo = 'Nueva Marca';
 }
 
 
@@ -43,9 +31,9 @@ else{
         <div class="input-group mb-3">
   <div class="input-group-prepend">
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=listado_categorias">Categorias</a></button>
+                                href="index.php?seccion=listado_marcas">Bodegas</a></button>
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=new_categoria">Nueva Categoria</a></button>
+                                href="index.php?seccion=new_marca">Nueva Bodega</a></button>
   </div>
   <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>
@@ -53,7 +41,7 @@ else{
             <div class="col-12 col-md-6">
                 <div class="card bg-light text-dark">
                     <div class="card-body">
-                        <form action="../admin/acciones/editar_cate.php" method="post">
+                        <form action="../admin/acciones/editar_marca.php" method="post">
                        <h1 class="text-danger"><?=$titulo;?> </h1>
                                     <input type="hidden" name="id" value="<?= $_GET['edit'] ?>">
         
@@ -61,10 +49,10 @@ else{
                               
                               <label for="nombre">Nombre Actual: 
                                 <?php
-                                    if((!empty($_GET['edit']))){
-                                    foreach($Categoria->getNombreCate($_GET['edit']) as $categorias){
+                                    if(!empty($_GET['edit'])){
+                                    foreach($Marca->getNombreMarca($_GET['edit']) as $marca){
                                         ?>
-                              <?php echo isset($categorias['categoria'])?$categorias['categoria']:'';?>
+                              <?php echo $marca['marca'];?>
 
                               <?php 
                                     
@@ -72,11 +60,11 @@ else{
                    } ?>
                               </label>
                     
-                              <input type="text" class="form-control" name="categoria" id="categoria">
+                              <input type="text" class="form-control" name="marca" id="marca">
                              
                             </div>
                        
-                            <button type="submit" class="btn btn-primary" name="formulario_categorias">
+                            <button type="submit" class="btn btn-primary" name="formulario_marcas">
                             Cargar</button>
                       
                         </form>

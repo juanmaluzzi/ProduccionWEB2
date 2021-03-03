@@ -131,6 +131,15 @@ if($Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMCOM')){
     }
     elseif($_GET["seccion"]=="listado_categorias" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
       require_once("secciones/listado_categorias.php");
+    } 
+    elseif($_GET["seccion"]=="new_categoria" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/new_categoria.php");
+    } 
+    elseif($_GET["seccion"]=="new_cepa" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/new_cepa.php");
+    }
+    elseif($_GET["seccion"]=="new_marca" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
+      require_once("secciones/new_marca.php");
     }  
     elseif($_GET["seccion"]=="listado_cepas" && $Usuario->validarPermiso($_SESSION['usuario']['perfil'],'ABMPROD')){
       require_once("secciones/listado_cepas.php");
