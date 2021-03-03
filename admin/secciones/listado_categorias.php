@@ -20,8 +20,8 @@
                 <thead>
                     <tr>
                         <th>ID Categoria</th>
-                        <th>Nombre Categoria</th>                                      
-                        
+                        <th>Nombre Categoria</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -38,13 +38,14 @@
             
                                 <td><?php echo $categorias['id']?></td>
                                 <td><?php echo $categorias['categoria']?></td>
-                                <td class="ml-5">
+                            
+                                <td>
                                  <?php       if (isset($_GET['del'])){
                                         $resp = $Categorias->borrarCategoria($_GET['del']);
                                         if($resp > 0){
                                         header ('Location: index.php?seccion=listado_categorias');
                                     }
-                                        echo '<script>alert("'.$resp.'");</script>';
+                                    
                                             }
 
                                     ?>
@@ -54,16 +55,16 @@
 
                                 <td>
                                 <?php       if (isset($_GET['edit'])){
-                                        $edit = $Productos->editarCategoria($_GET['edit']);
+                                        $edit = $Categorias->editarCategoria($_GET['edit']);
                                         if($edit > 0){
-                                        header ('Location: index.php?seccion=listado_categorias');
+                                        header ('Location: index.php?seccion=new_categoria');
                                     }
                                        
                                             }
 
                                     ?>
                                 <button type="button" class="btn  btn-sm"><a
-                                href="index.php?seccion=listado_categorias&edit=<?php echo $categorias['id']?>">Editar</a></button>
+                                href="index.php?seccion=new_categoria&edit=<?php echo $categorias['id']?>">Editar</a></button>
                                 
                                 </td>
 
@@ -76,6 +77,7 @@
                         <?php
                     } //FIN DEL IFELSE
                 } //FIN DEL FOREACH
+
                         ?>
                         </tbody>
                     </table>    

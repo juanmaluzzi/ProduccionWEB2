@@ -35,32 +35,59 @@
 			return $this->con->query($query);	
 		}
 
+	
 		public function borrarCategoria($id){
 
-			$query = "SELECT count(1) AS cantidad FROM categoria WHERE id = '".$id."' ;";
+			$query = "SELECT count(1) AS cantidad FROM categoria WHERE id = ".$id." ;";
 			$consulta = $this->con->query($query)->fetch();
 			
-			if ($consulta->cantidad == 0){
+			
 			$sql = "DELETE FROM categoria WHERE id = '" . $id . "';";
 			
 			$this->con->exec($sql);
-			return 1;
-			}
-			
-			return 'Categoria eliminada';
+			return $sql;
 			
 			}
-
-			public function editarCategoria($id){
+			public function editarCategoria($id,$name){
 		
-				$query = "SELECT count(1) AS cantidad FROM categoria WHERE id = '" . $id . "' ;";
-				$consulta = $this->con->query($query)->fetch();
-				$sql = "UPDATE categoria SET habilitado = 1 WHERE id = '" . $id . "';";
+				$query = "UPDATE categoria SET categoria = '" . $name . "'
+				WHERE id = '" .$id. "';";
 				
-				$this->con->exec($sql);
-				return 'Categoria editada'; 
+				$this->con->exec($query);
+				return 'Cambios realizados'; 
 
 				}
-	}
+				
+				public function saveCategoria($datos){
+		
+					$query = "INSERT INTO categoria(categoria)
+			
+					VALUES ('".$datos."');";
+			
+					if ($this->con->exec($query)>0) {
+			
+					return 'Tu categoria fue guardada';
+			
+					}else{
+			
+					return 'Error, vuelva a intentar';
+					
+					}
+					}
+
+				
+		public function availableCat($id){
+		
+			$query = "SELECT count(1) AS cantidad FROM categoria WHERE id = '" . $id . "' ;";
+			$consulta = $this->con->query($query)->fetch();
+			$sql = "UPDATE categoria SET habilitado = 1 WHERE id = '" . $id . "';";
+			
+			$this->con->exec($sql);
+			return 'Categoria Habilitada'; 
+
+			}
+				
+				
+				}
 
 ?>

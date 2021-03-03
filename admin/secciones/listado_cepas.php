@@ -5,9 +5,9 @@
         <div class="input-group mb-3">
   <div class="input-group-prepend">
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=listado_categorias">Categorias</a></button>
+                                href="index.php?seccion=listado_cepas">Cepas</a></button>
     <button class="btn btn-outline-secondary" type="button"><a
-                                href="index.php?seccion=new_categoria">Nueva Categoria</a></button>
+                                href="index.php?seccion=new_cepa">Nueva Cepa</a></button> <?php #FRANKIE ?>
   </div>
   <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>
@@ -19,51 +19,53 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ID Categoria</th>
-                        <th>Nombre Categoria</th>                                      
+                        <th>ID Cepa</th>
+                        <th>Nombre Cepa</th>
+                                                        
                         
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                 require_once '../inc/mysql_login.php'; 
-                require_once '../clases/categoria.php';    
+                require_once '../clases/cepa.php';    
 
 	  
-                            $Categorias = new Categoria($con);
-                           foreach($Categorias->getCategoria($_GET) as $categorias){ 
-                               if($categorias['id'] != null){
+                            $Cepa = new Cepa($con);
+                           foreach($Cepa->getCepa($_GET) as $cepa){ 
+                               if($cepa['id_cepa'] != null){
                 ?>
                             <tr>
             
-                                <td><?php echo $categorias['id']?></td>
-                                <td><?php echo $categorias['categoria']?></td>
-                                <td class="ml-5">
+                                <td><?php echo $cepa['id_cepa']?></td>
+                                <td><?php echo $cepa['cepa']?></td>
+                            
+                                <td>
                                  <?php       if (isset($_GET['del'])){
-                                        $resp = $Categorias->borrarCategoria($_GET['del']);
+                                        $resp = $Cepa->borrarCepa($_GET['del']);
                                         if($resp > 0){
-                                        header ('Location: index.php?seccion=listado_categorias');
+                                        header ('Location: index.php?seccion=listado_cepas');
                                     }
-                                        echo '<script>alert("'.$resp.'");</script>';
+                                    
                                             }
 
                                     ?>
                                      <button type="button" class="btn  btn-sm"><a
-                                href="index.php?seccion=listado_categorias&del=<?php echo $categorias['id']?>">Borrar</a></button>
+                                href="index.php?seccion=listado_cepas&del=<?php echo $cepa['id_cepa']?>">Borrar</a></button>
                                 </td>
 
                                 <td>
                                 <?php       if (isset($_GET['edit'])){
-                                        $edit = $Productos->editarCategoria($_GET['edit']);
+                                        $edit = $cepa->editarCepa($_GET['edit']);
                                         if($edit > 0){
-                                        header ('Location: index.php?seccion=listado_categorias');
+                                        header ('Location: index.php?seccion=new_cepa');
                                     }
                                        
                                             }
 
                                     ?>
                                 <button type="button" class="btn  btn-sm"><a
-                                href="index.php?seccion=listado_categorias&edit=<?php echo $categorias['id']?>">Editar</a></button>
+                                href="index.php?seccion=new_cepa&edit=<?php echo $cepa['id_cepa']?>">Editar</a></button>
                                 
                                 </td>
 
@@ -72,10 +74,11 @@
                 <?php
                     }else{
                 ?>
-                 <h2 class="alert text-center">No hay Categorias cargadas</h2>
+                 <h2 class="alert text-center">No hay Cepas cargadas</h2>
                         <?php
                     } //FIN DEL IFELSE
                 } //FIN DEL FOREACH
+
                         ?>
                         </tbody>
                     </table>    
