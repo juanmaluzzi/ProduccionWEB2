@@ -30,8 +30,7 @@
 			
 			$this->con->exec($sql);
 			return 1;
-			}
-			
+			}		
 			return 'Categoria eliminada';
 			
 			}
